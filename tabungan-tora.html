@@ -1,0 +1,915 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tabungan TORA — J Trust Bank</title>
+<script src="dc-runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&amp;family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=Unbounded:wght@500;700;800&amp;family=Zen+Maru+Gothic:wght@500;700;900&amp;family=Syne:wght@600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.jtbg-prioritas{background-image:linear-gradient(180deg, rgba(10,24,48,0.1) 0%, rgba(10,24,48,0.7) 40%, rgba(10,24,48,0.94) 72%), url(assets/prioritas.jpg)}
+.jtbg-bisnis{background-image:linear-gradient(180deg, rgba(10,24,48,0.1) 0%, rgba(10,24,48,0.7) 40%, rgba(10,24,48,0.94) 72%), url(assets/bisnis.jpg)}
+.jtbg-promo-1{background-image:linear-gradient(rgba(10,24,48,0.84), rgba(10,24,48,0.84)), url(assets/promo-1.jpg)}
+.jtbg-tentang{background-image:linear-gradient(180deg, rgba(10,24,48,0.82) 0%, rgba(10,24,48,0.7) 45%, rgba(10,24,48,0.9) 100%), url(assets/tentang.jpg)}
+.jtbg-jm-bg{background-image:linear-gradient(rgba(6,18,72,0.3), rgba(6,18,72,0.3)), url(assets/jm-bg.jpg)}
+*{box-sizing:border-box}
+h1,h2,h3,h4,p{margin:0}
+a{color:#0E2A47}a:hover{color:#1670AA}
+.jt-solid,.jt-ghost-l,.jt-ghost-d,.jt-round-l,.jt-round-d,.jt-chip,.jt-navbtn,.jt-mlink,.jt-link{transition:transform .2s ease,background-color .2s ease,color .2s ease,border-color .2s ease,filter .2s ease,text-underline-offset .2s ease}
+.jt-solid:hover{transform:translateY(-2px);filter:brightness(1.12);color:inherit}
+a.jt-solid:hover{color:inherit}
+.jt-ghost-l:hover{background-color:#FFFFFF !important;color:#0E2A47 !important;transform:translateY(-2px)}
+.jt-ghost-d:hover{background-color:#0E2A47 !important;color:#FFFFFF !important;transform:translateY(-2px)}
+.jt-solid:active,.jt-ghost-l:active,.jt-ghost-d:active{transform:scale(.97)}
+.jt-round-l:hover{background-color:rgba(255,255,255,.22) !important;transform:scale(1.06)}
+.jt-round-d:hover{background-color:#0E2A47 !important;color:#FFFFFF !important;border-color:#0E2A47 !important}
+.jt-chip:hover{border-color:#4CAFEA !important;transform:translateY(-1px)}
+.jt-navbtn:hover{background-color:rgba(127,127,127,.16) !important}
+.jt-mlink:hover{background-color:#E8F5FD !important}
+.jt-link:hover{text-underline-offset:10px}
+.jt-flink{transition:color .2s ease,background-color .2s ease}
+.jt-flink:hover{color:#FFFFFF !important;text-decoration:underline !important;text-underline-offset:4px}
+a.jt-flink[aria-label]:hover{background-color:rgba(255,255,255,0.12);text-decoration:none !important}
+.jt-tab:hover{color:#0E2A47 !important}
+.jt-row::-webkit-scrollbar{display:none}
+.jt-arrowlink svg{transition:transform .25s ease}
+.jt-arrowlink:hover{color:#0E2A47 !important}
+.jt-arrowlink:hover svg{transform:translateX(5px)}
+.jt-arrowlink-l:hover{color:#8FD3F7 !important}
+@media (prefers-reduced-motion: reduce){.jt-arrowlink svg{transition:none}}
+@keyframes jtOvIn{from{opacity:0}to{opacity:1}}
+@keyframes jtOvOut{from{opacity:1}to{opacity:0}}
+@keyframes jtDlgIn{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes jtDlgOut{from{opacity:1;transform:none}to{opacity:0;transform:translateY(16px) scale(.98)}}
+.jt-ov{animation:jtOvIn .28s ease both}
+.jt-ov .jt-dlg{animation:jtDlgIn .36s cubic-bezier(.2,.8,.2,1) both}
+.jt-ov.is-out{animation:jtOvOut .22s ease both}
+.jt-ov.is-out .jt-dlg{animation:jtDlgOut .22s ease both}
+.jt-fade{animation:jtOvIn .3s ease both}
+@media (prefers-reduced-motion: reduce){.jt-ov,.jt-ov .jt-dlg,.jt-ov.is-out,.jt-ov.is-out .jt-dlg,.jt-fade{animation:none}}
+@keyframes jtMascIn{from{opacity:0;transform:translateY(28px) scale(.9)}to{opacity:1;transform:none}}
+.jt-masc{animation:jtMascIn .55s cubic-bezier(.2,.9,.3,1.25) .12s both}
+.jt-masc-done{animation:jtMascIn .6s cubic-bezier(.2,.9,.3,1.25) both}
+@media (max-width: 640px){.jt-masc{height:120px !important;top:-62px !important;right:68px !important}}
+@media (prefers-reduced-motion: reduce){.jt-masc,.jt-masc-done{animation:none}}
+@keyframes jtFabIn{from{opacity:0;transform:translateY(24px) scale(.9)}to{opacity:1;transform:none}}
+@keyframes jtTabIn{from{transform:translateX(100%)}to{transform:none}}
+.jt-fab{animation:jtFabIn .45s cubic-bezier(.2,.9,.3,1.2) both}
+.jt-fab-img{animation:jtFloat 4s ease-in-out infinite;transition:transform .25s ease}
+.jt-fab-btn:hover .jt-fab-img{animation-play-state:paused;transform:scale(1.05)}
+.jt-fab-btn:focus-visible{outline:3px solid #4CAFEA;outline-offset:4px;border-radius:16px}
+.jt-fab-x{transition:transform .2s ease,background-color .2s ease}
+.jt-fab-x:hover{transform:scale(1.1);background-color:#1670AA !important}
+.jt-fab-tab{animation:jtTabIn .35s cubic-bezier(.2,.8,.2,1) both;transition:padding .2s ease}
+.jt-fab-tab:hover{padding-right:18px !important}
+@media (max-width: 640px){.jt-fab{right:12px !important;bottom:12px !important}.jt-fab-img{height:116px !important}.jt-fab-btn span{font-size:12px !important;padding:0 12px !important;min-height:36px !important}}
+@media (prefers-reduced-motion: reduce){.jt-fab,.jt-fab-img,.jt-fab-tab{animation:none}}
+@keyframes jtMarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.jt-marq-track{animation:jtMarq 45s linear infinite}
+.jt-marq:hover .jt-marq-track,.jt-marq:focus-within .jt-marq-track,.jt-marq-track.is-paused{animation-play-state:paused}
+.jt-marq-btn{transition:background-color .2s ease,color .2s ease}
+.jt-marq-btn:hover{background-color:#5A4300 !important;color:#FFF4D6 !important}
+@media (prefers-reduced-motion: reduce){.jt-marq-track{animation:none;width:auto !important;flex-direction:column}.jt-marq-set{white-space:normal !important;flex-direction:column;align-items:flex-start !important;gap:8px !important;padding-right:0 !important}.jt-marq-set[aria-hidden]{display:none !important}.jt-marq{-webkit-mask-image:none !important;mask-image:none !important}.jt-marq-btn{display:none !important}}
+.jt-tier{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease,background-color .25s ease;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.jt-tier:hover{transform:translateY(-4px);border-color:#4CAFEA !important;box-shadow:0 14px 32px rgba(14,42,71,.12)}
+.jt-tier:focus-visible,.jt-faq:focus-visible{outline:3px solid #4CAFEA;outline-offset:3px}
+@media (max-width: 1100px){.jt-tiers .jt-tier{min-height:200px !important}}
+.jt-faq{transition:background-color .2s ease}
+.jt-faq:hover{background-color:#F7FBFE !important}
+@media (prefers-reduced-motion: reduce){.jt-acc *{transition:none !important}}
+.jt-glass.jt-rate:hover{background-color:rgba(255,255,255,0.12) !important;border-color:rgba(255,255,255,0.28) !important}
+.jt-optgrid{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width: 900px){.jt-optgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.jt-opt{transition:border-color .2s ease,background-color .2s ease,box-shadow .2s ease}
+.jt-opt:hover{border-color:#4CAFEA !important}
+.jt-opt:has(.jt-opt-in:focus-visible){box-shadow:0 0 0 3px rgba(22,112,170,.35)}
+.jt-in{transition:border-color .2s ease,box-shadow .2s ease}
+.jt-in:focus{outline:none;border-color:#1670AA !important;box-shadow:0 0 0 3px rgba(22,112,170,.28)}
+.jt-rate{transition:background-color .3s ease,transform .3s ease}
+.jt-rate:hover{background-color:#E2F0FA !important}
+.jt-rate .jt-rate-arr{transition:background-color .3s ease,color .3s ease,transform .3s ease}
+.jt-rate:hover .jt-rate-arr{background-color:#0E2A47 !important;color:#FFFFFF !important;transform:translateX(4px)}
+.jt-rate .jt-rate-ico{transition:transform .35s ease}
+.jt-rate:hover .jt-rate-ico{transform:translateY(-3px)}
+.jt-flip{perspective:1400px}
+.jt-flip-in{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.22,.61,.36,1)}
+.jt-flip:hover .jt-flip-in{transform:rotateY(180deg) !important}
+.jt-face{position:absolute;inset:0;border-radius:32px;overflow:hidden;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.jt-back{transform:rotateY(180deg)}
+@media (prefers-reduced-motion: reduce){.jt-flip-in{transition:none !important}}
+.jt-floaty{animation:jtFloat 5s ease-in-out infinite}
+.jt-floaty2{animation:jtFloat 4s ease-in-out infinite;animation-delay:-2s}
+@keyframes jtScan{0%,100%{top:14%}50%{top:82%}}
+.jt-scan{animation:jtScan 2.4s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.jt-floaty,.jt-floaty2,.jt-scan{animation:none !important}}
+@keyframes jtFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes jtPop{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+@keyframes jtWiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-9deg)}75%{transform:rotate(9deg)}}
+@keyframes jtNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+.jt-rows,.jt-tiles{transition:transform .6s cubic-bezier(.22,.61,.36,1),gap .6s cubic-bezier(.22,.61,.36,1)}
+.jt-rowi{animation:jtFloat 4.5s ease-in-out infinite}
+.jt-rowi:nth-child(2){animation-delay:-2.25s}
+.jt-tile{animation:jtFloat 5s ease-in-out infinite}
+.jt-tile:nth-child(2){animation-delay:-1.25s}.jt-tile:nth-child(3){animation-delay:-2.5s}.jt-tile:nth-child(4){animation-delay:-3.75s}
+.jt-ico{animation:jtPop 3.2s ease-in-out infinite}
+.jt-tile:nth-child(2) .jt-ico{animation-delay:-.8s}.jt-tile:nth-child(3) .jt-ico{animation-delay:-1.6s}.jt-tile:nth-child(4) .jt-ico{animation-delay:-2.4s}
+.jt-tag{display:inline-block;transition:transform .3s ease}
+.jt-chev{transition:transform .3s ease}
+.jt-card:hover .jt-ico{animation:jtWiggle .9s ease-in-out infinite}
+.jt-card:hover .jt-chev{animation:jtNudge .8s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.jt-rowi,.jt-tile,.jt-ico,.jt-chev{animation:none !important}.jt-rows,.jt-tiles,.jt-tag{transition:none !important;transform:none !important}}
+@media (prefers-reduced-motion: reduce){.jt-solid,.jt-ghost-l,.jt-ghost-d,.jt-round-l,.jt-round-d,.jt-chip,.jt-card .jt-vis,.jt-card .jt-vis img{transition:none !important;transform:none !important}}
+</style>
+</helmet>
+<div style="position: relative; background: #FFFFFF; color: #0E2A47; font-family: 'DM Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+  <header onMouseEnter="{{hdrEnter}}" onMouseLeave="{{hdrLeave}}" onKeyDown="{{hdrKey}}" style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; color: {{h.fg}}; background: {{h.bg}}; backdrop-filter: {{h.blur}}; -webkit-backdrop-filter: {{h.blur}}; border-bottom: {{h.border}}; transform: {{h.tf}}; transition: transform 0.35s ease, background-color 0.25s ease, color 0.25s ease">
+    <div style="height: 4px; background: linear-gradient(90deg, #0E4C8A, #1C7FBF 30%, #4CAFEA 65%, #A8DDF8)"></div>
+    <div style="max-width: 1420px; margin: 0 auto; padding: 0 24px; min-height: 76px; display: flex; align-items: center; gap: 20px">
+      <a href="index.html" aria-label="J Trust Bank, beranda" style="display: flex; align-items: center; flex: none; text-decoration: none"><img src="{{h.logoSrc}}" alt="J Trust Bank" style="display: block; height: {{h.logoH}}; width: auto"></a>
+      <sc-if value="{{wide}}" hint-placeholder-val="{{true}}">
+        <nav aria-label="Menu utama" style="margin-left: auto; display: flex; gap: 2px">
+          <sc-for list="{{menus}}" as="m" hint-placeholder-count="4">
+            <button class="jt-navbtn" type="button" aria-expanded="{{m.exp}}" aria-controls="mega-{{m.key}}" onClick="{{m.toggle}}" onMouseEnter="{{m.hover}}" style="display: flex; align-items: center; gap: 6px; background: {{m.bg}}; border: 0; color: inherit; font: 600 17px 'DM Sans', sans-serif; padding: 10px 14px; border-radius: 999px; min-height: 44px; cursor: pointer">{{m.label}}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="transition: transform 0.2s ease; transform: {{m.rot}}"><path d="M6 9l6 6 6-6"></path></svg></button>
+          </sc-for>
+        </nav>
+      </sc-if>
+      <div style="margin-left: {{rightMl}}; display: flex; align-items: center; gap: 8px">
+        <button class="jt-navbtn" type="button" aria-label="Cari" aria-expanded="{{cariExp}}" aria-controls="mega-cari" onClick="{{toggleCari}}" style="width: 44px; height: 44px; border-radius: 50%; border: 0; color: inherit; display: grid; place-items: center; cursor: pointer; background: {{cariBg}}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></button>
+        <sc-if value="{{wide}}" hint-placeholder-val="{{true}}">
+          <div style="display: flex; align-items: center; gap: 8px">
+            <div role="group" aria-label="Bahasa" style="display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: rgba(127,127,127,0.18)">
+              <sc-for list="{{langs}}" as="l" hint-placeholder-count="3">
+                <button type="button" aria-pressed="{{l.on}}" onClick="{{l.pick}}" style="border: 0; background: {{l.bg}}; color: {{l.fg}}; font: 700 13px 'DM Sans', sans-serif; padding: 7px 10px; border-radius: 999px; min-height: 32px; cursor: pointer">{{l.code}}</button>
+              </sc-for>
+            </div>
+            <div style="position: relative">
+              <button type="button" aria-expanded="{{loginExp}}" aria-controls="login-menu" onClick="{{toggleLogin}}" class="jt-solid" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 20px; border: 0; border-radius: 999px; background: {{h.fg}}; color: {{h.on}}; font: 700 15px 'DM Sans', sans-serif; white-space: nowrap; cursor: pointer; transition: background-color 0.25s ease, color 0.25s ease">Login<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true" style="transform: {{loginRot}}; transition: transform 0.2s ease"><path d="M6 9l6 6 6-6"></path></svg></button>
+              <sc-if value="{{open_login}}" hint-placeholder-val="{{false}}">
+                <div id="login-menu" style="position: absolute; right: 0; top: calc(100% + 12px); width: 280px; background: #FFFFFF; color: #0E2A47; border: 1px solid #D6E4EE; border-radius: 20px; padding: 10px; z-index: 60"><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 12px; border-radius: 12px; text-decoration: none; font-weight: 700; color: #0E2A47">J Net<span style="display: block; font-weight: 400; font-size: 13px; color: #41586F">Internet banking individu</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 12px; border-radius: 12px; text-decoration: none; font-weight: 700; color: #0E2A47">J NET Business<span style="display: block; font-weight: 400; font-size: 13px; color: #41586F">Internet banking bisnis</span></a><div style="height: 1px; background: #D6E4EE; margin: 6px 12px"></div><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 12px; border-radius: 12px; text-decoration: none; font-weight: 700; color: #0E2A47">Download J Mobile<span style="display: block; font-weight: 400; font-size: 13px; color: #41586F">App Store &amp; Google Play</span></a></div>
+              </sc-if>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{narrow}}" hint-placeholder-val="{{false}}">
+          <button class="jt-navbtn" type="button" aria-label="{{burgerLabel}}" aria-expanded="{{mobExp}}" onClick="{{toggleMob}}" style="width: 44px; height: 44px; border-radius: 50%; border: 0; color: inherit; display: grid; place-items: center; cursor: pointer; background: transparent"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+        </sc-if>
+      </div>
+    </div>
+      <sc-if value="{{open_individu}}" hint-placeholder-val="{{false}}">
+        <div id="mega-individu" style="background: #FFFFFF; color: #0E2A47; border-top: 1px solid #D6E4EE; border-bottom: 1px solid #D6E4EE; padding: 36px 0 44px; max-height: calc(100vh - 80px); overflow: auto">
+          <div style="max-width: 1420px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 1.3fr); gap: 32px"><div><h4 style="font-size: 14px; color: #41586F; margin-bottom: 10px">Simpanan</h4><a class="jt-mlink" href="simpanan-individu.html" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Tabungan<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Rekening harian, terhubung ke J Mobile</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Simpanan Berjangka<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Deposito Rupiah &amp; USD</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Giro<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Rekening untuk transaksi rutin</span></a></div><div><h4 style="font-size: 14px; color: #41586F; margin-bottom: 10px">Pinjaman</h4><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Pinjaman<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Kredit konsumer &amp; KPR</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Simulasi kredit<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Hitung cicilan sebelum mengajukan</span></a></div><div><h4 style="font-size: 14px; color: #41586F; margin-bottom: 10px">Valas &amp; info</h4><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Forex<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Jual beli valuta asing</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Kurs J Trust<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Kurs valas hari ini</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Suku bunga<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Bunga simpanan &amp; pinjaman</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Tarif &amp; layanan<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Biaya dan layanan perbankan</span></a></div><div><h4 style="font-size: 14px; color: #41586F; margin-bottom: 10px">Digital</h4><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">J Mobile<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Buka rekening dan transaksi dari HP</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">J Net<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Internet banking individu</span></a></div><div class="jtbg-prioritas" style="border-radius: 24px; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; overflow: hidden; color: #FFFFFF; background-color: #0E2A47; background-size: cover; background-position: 62% top; text-shadow: 0 1px 8px rgba(5,16,48,0.5)"><p style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #FFD447">Untuk nasabah Prioritas</p><strong style="font-family: {{hfont}}; font-weight: {{hweight}}; font-size: 26px; line-height: 1.1">J Trust Prioritas</strong><p style="font-size: 15px; line-height: 1.45; color: #E4EEF7">Layanan lebih personal untuk rencana finansial yang lebih besar.</p><p style="display: flex; flex-wrap: wrap; gap: 4px 12px"><a href="#" onClick="{{closeAll}}" class="jt-flink" style="color: #FFFFFF; text-decoration: none; font-size: 14px; font-weight: 600">Layanan</a><span aria-hidden="true" style="color: #8FA9BF">·</span><a href="#" onClick="{{closeAll}}" class="jt-flink" style="color: #FFFFFF; text-decoration: none; font-size: 14px; font-weight: 600">Bancassurance</a><span aria-hidden="true" style="color: #8FA9BF">·</span><a href="#" onClick="{{closeAll}}" class="jt-flink" style="color: #FFFFFF; text-decoration: none; font-size: 14px; font-weight: 600">Forex</a></p><a href="#" onClick="{{closeAll}}" class="jt-solid" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 20px; margin-top: 4px; border-radius: 999px; background: #FFFFFF; color: #0E2A47; font-weight: 700; font-size: 15px; text-decoration: none; text-shadow: none">Kenali Prioritas<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div></div>
+        </div>
+      </sc-if>
+      <sc-if value="{{open_bisnis}}" hint-placeholder-val="{{false}}">
+        <div id="mega-bisnis" style="background: #FFFFFF; color: #0E2A47; border-top: 1px solid #D6E4EE; border-bottom: 1px solid #D6E4EE; padding: 36px 0 44px; max-height: calc(100vh - 80px); overflow: auto">
+          <div style="max-width: 1420px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 1.3fr); gap: 32px"><div><h4 style="font-size: 14px; color: #41586F; margin-bottom: 10px">Simpanan</h4><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Simpanan Bisnis<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Rekening operasional usaha</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Simpanan Berjangka<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Deposito untuk dana usaha</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Giro<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Rekening transaksi bisnis</span></a></div><div><h4 style="font-size: 14px; color: #41586F; margin-bottom: 10px">Pembiayaan</h4><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Pinjaman Bisnis<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Modal kerja &amp; investasi</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Trade Finance<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Transaksi perdagangan</span></a></div><div><h4 style="font-size: 14px; color: #41586F; margin-bottom: 10px">Layanan</h4><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Cash Management<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Kelola arus kas usaha</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Program Manfaat Karyawan<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Layanan perbankan untuk karyawan</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Forex<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Valas untuk kebutuhan bisnis</span></a></div><div><h4 style="font-size: 14px; color: #41586F; margin-bottom: 10px">Digital</h4><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">J NET Business<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Internet banking bisnis</span></a></div><div class="jtbg-bisnis" style="border-radius: 24px; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; overflow: hidden; color: #FFFFFF; background-color: #0E2A47; background-size: cover; background-position: 70% top; text-shadow: 0 1px 8px rgba(5,16,48,0.5)"><p style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #FFD447">Untuk pelaku usaha</p><strong style="font-family: {{hfont}}; font-weight: {{hweight}}; font-size: 26px; line-height: 1.1">Konsultasi kebutuhan usahamu</strong><p style="font-size: 15px; line-height: 1.45; color: #E4EEF7">Tim bisnis J Trust siap membantu menemukan solusi yang pas.</p><p style="display: flex; flex-wrap: wrap; gap: 4px 12px"><a href="#" onClick="{{closeAll}}" class="jt-flink" style="color: #FFFFFF; text-decoration: none; font-size: 14px; font-weight: 600">Pembiayaan</a><span aria-hidden="true" style="color: #8FA9BF">·</span><a href="#" onClick="{{closeAll}}" class="jt-flink" style="color: #FFFFFF; text-decoration: none; font-size: 14px; font-weight: 600">Cash Management</a><span aria-hidden="true" style="color: #8FA9BF">·</span><a href="#" onClick="{{closeAll}}" class="jt-flink" style="color: #FFFFFF; text-decoration: none; font-size: 14px; font-weight: 600">Trade Finance</a></p><a href="#" onClick="{{closeAll}}" class="jt-solid" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 20px; margin-top: 4px; border-radius: 999px; background: #FFFFFF; color: #0E2A47; font-weight: 700; font-size: 15px; text-decoration: none; text-shadow: none">Hubungi tim bisnis<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div></div>
+        </div>
+      </sc-if>
+      <sc-if value="{{open_promo}}" hint-placeholder-val="{{false}}">
+        <div id="mega-promo" style="background: #FFFFFF; color: #0E2A47; border-top: 1px solid #D6E4EE; border-bottom: 1px solid #D6E4EE; padding: 36px 0 44px; max-height: calc(100vh - 80px); overflow: auto">
+          <div style="max-width: 1420px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.3fr); gap: 32px"><div><h4 style="font-size: 14px; color: #41586F; margin-bottom: 10px">Promo produk</h4><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Save My Swing<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Simpan dana, dapat free driving range</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Tabungan Rencana Berhadiah<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Nabung rutin, raih hadiah</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Program Giro Prime<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Program khusus rekening giro</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Semua promo produk<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Lihat semua program produk</span></a></div><div><h4 style="font-size: 14px; color: #41586F; margin-bottom: 10px">Promo merchant</h4><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Kuliner<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Diskon di restoran &amp; kafe</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Belanja<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Promo di merchant pilihan</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Staycation<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Diskon hotel &amp; resort</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Semua promo merchant<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Lihat semua merchant</span></a></div><div><h4 style="font-size: 14px; color: #41586F; margin-bottom: 10px">Gourmet Choice</h4><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">J Trust Gourmet Choice 2026<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Penghargaan restoran pilihan</span></a></div><div class="jtbg-promo-1" style="border-radius: 24px; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end; gap: 10px; overflow: hidden; color: #FFFFFF; background-color: #0E2A47; background-size: cover; background-position: center top; text-shadow: 0 1px 8px rgba(5,16,48,0.5)"><p style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #FFD447">Promo merchant · s.d. 24 Des 2026</p><strong style="font-family: {{hfont}}; font-weight: {{hweight}}; font-size: 26px; line-height: 1.1">Diskon 10% di Johnny Rockets</strong><p style="font-size: 15px; line-height: 1.45; color: #E4EEF7">Bayar pakai Kartu Debit J Trust Bank, ada bonus tas tumbler juga.</p><p style="display: flex; flex-wrap: wrap; gap: 4px 12px"><a href="#" onClick="{{closeAll}}" class="jt-flink" style="color: #FFFFFF; text-decoration: none; font-size: 14px; font-weight: 600">Semua promo</a><span aria-hidden="true" style="color: #8FA9BF">·</span><a href="#" onClick="{{closeAll}}" class="jt-flink" style="color: #FFFFFF; text-decoration: none; font-size: 14px; font-weight: 600">Gourmet Choice</a></p><a href="#" onClick="{{closeAll}}" class="jt-solid" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 20px; margin-top: 4px; border-radius: 999px; background: #FFFFFF; color: #0E2A47; font-weight: 700; font-size: 15px; text-decoration: none; text-shadow: none">Lihat promo<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div></div>
+        </div>
+      </sc-if>
+      <sc-if value="{{open_tentang}}" hint-placeholder-val="{{false}}">
+        <div id="mega-tentang" style="background: #FFFFFF; color: #0E2A47; border-top: 1px solid #D6E4EE; border-bottom: 1px solid #D6E4EE; padding: 36px 0 44px; max-height: calc(100vh - 80px); overflow: auto">
+          <div style="max-width: 1420px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.3fr); gap: 32px"><div><h4 style="font-size: 14px; color: #41586F; margin-bottom: 10px">Perusahaan</h4><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Informasi perusahaan<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Profil dan struktur perusahaan</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Tata kelola perusahaan<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Prinsip GCG dan kebijakan</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Hubungan investor<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Laporan dan informasi saham</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Keberlanjutan<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Komitmen keberlanjutan</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Penghargaan<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Pencapaian dan apresiasi</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Maskot J Trust<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Kenalan dengan maskot kami</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Karir<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Bergabung bersama J Trust</span></a></div><div><h4 style="font-size: 14px; color: #41586F; margin-bottom: 10px">Kabar &amp; wawasan</h4><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Berita korporasi<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Kabar terbaru perusahaan</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">CSR<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Kegiatan J Trust Bank Peduli</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Informasi<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Pengumuman layanan</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Market update<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Ulasan pasar harian</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Tips &amp; edukasi<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Panduan atur keuangan</span></a></div><div><h4 style="font-size: 14px; color: #41586F; margin-bottom: 10px">J Trust Group</h4><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Tentang J Trust Group<span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Profil grup perusahaan</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">J Trust Investments Indonesia<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="margin-left: 4px"><path d="M7 17L17 7M9 7h8v8"></path></svg><span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Situs anak usaha</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">J Trust Consulting Indonesia<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="margin-left: 4px"><path d="M7 17L17 7M9 7h8v8"></path></svg><span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Situs anak usaha</span></a><a class="jt-mlink" href="#" onClick="{{closeAll}}" style="display: block; padding: 8px 10px; margin-left: -10px; border-radius: 12px; text-decoration: none; font-weight: 600; color: #0E2A47">Turn Around Asset Indonesia<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="margin-left: 4px"><path d="M7 17L17 7M9 7h8v8"></path></svg><span style="display: block; font-weight: 400; color: #41586F; font-size: 14px; line-height: 1.4">Situs anak usaha</span></a></div><div class="jtbg-tentang" style="border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 16px; overflow: hidden; color: #FFFFFF; background-color: #0E2A47; background-size: cover; background-position: 65% 20%; text-shadow: 0 1px 8px rgba(5,16,48,0.5)"><div style="display: flex; justify-content: space-between; align-items: center; gap: 12px"><div style="min-width: 0"><p style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #FFD447">Layanan nasabah</p><strong style="display: block; font-family: {{hfont}}; font-weight: {{hweight}}; font-size: 22px; line-height: 1.1; margin-top: 8px; white-space: nowrap">Butuh bantuan?</strong></div><img src="assets/jtrust-call-white.png" alt="J Trust Call 1500 615, customercare@jtrustbank.co.id" style="display: block; flex: 0 1 128px; min-width: 92px; width: 128px; height: auto"></div><span aria-hidden="true" style="flex: 1 1 auto"></span><div style="display: flex; gap: 8px"><a href="#" onClick="{{closeAll}}" class="jt-solid" style="flex: 1 1 0; min-width: 0; display: inline-flex; justify-content: center; align-items: center; gap: 6px; min-height: 44px; padding: 0 10px; border-radius: 999px; background: #FFFFFF; color: #0E2A47; font-weight: 700; font-size: 14px; text-decoration: none; text-shadow: none; white-space: nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>Lokasi cabang</a><a href="#" onClick="{{closeAll}}" class="jt-ghost-l" style="flex: 1 1 0; min-width: 0; display: inline-flex; justify-content: center; align-items: center; gap: 6px; min-height: 44px; padding: 0 10px; border-radius: 999px; border: 2px solid #FFFFFF; color: #FFFFFF; font-weight: 700; font-size: 14px; text-decoration: none; text-shadow: none; white-space: nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg>Hubungi kami</a></div></div></div>
+        </div>
+      </sc-if>
+      <sc-if value="{{open_cari}}" hint-placeholder-val="{{false}}">
+        <div id="mega-cari" style="background: #FFFFFF; color: #0E2A47; border-top: 1px solid #D6E4EE; border-bottom: 1px solid #D6E4EE; padding: 36px 0 44px">
+          <div style="max-width: 1420px; margin: 0 auto; padding: 0 24px">
+            <label for="jt-q" style="display: block; font-size: 14px; font-weight: 700; color: #41586F; margin-bottom: 10px">Cari di J Trust Bank</label>
+            <input id="jt-q" type="search" placeholder="Deposito, kartu debit, promo" style="width: 100%; font: 600 22px 'DM Sans', sans-serif; padding: 16px 20px; border-radius: 18px; border: 2px solid #0E2A47; background: #FFFFFF; color: #0E2A47">
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px">
+              <a class="jt-mlink" href="#" onClick="{{closeAll}}" style="padding: 8px 16px; border-radius: 999px; border: 1px solid #D6E4EE; text-decoration: none; font-weight: 600; font-size: 15px; color: #0E2A47">Buka rekening online</a>
+              <a class="jt-mlink" href="#" onClick="{{closeAll}}" style="padding: 8px 16px; border-radius: 999px; border: 1px solid #D6E4EE; text-decoration: none; font-weight: 600; font-size: 15px; color: #0E2A47">Bunga deposito</a>
+              <a class="jt-mlink" href="#" onClick="{{closeAll}}" style="padding: 8px 16px; border-radius: 999px; border: 1px solid #D6E4EE; text-decoration: none; font-weight: 600; font-size: 15px; color: #0E2A47">Promo McDonald’s</a>
+              <a class="jt-mlink" href="#" onClick="{{closeAll}}" style="padding: 8px 16px; border-radius: 999px; border: 1px solid #D6E4EE; text-decoration: none; font-weight: 600; font-size: 15px; color: #0E2A47">Lokasi cabang</a>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{mobOpen}}" hint-placeholder-val="{{false}}">
+        <div style="background: #FFFFFF; color: #0E2A47; border-top: 1px solid #D6E4EE; padding: 8px 24px 32px; max-height: 80vh; overflow: auto">
+          <details style="border-bottom: 1px solid #D6E4EE"><summary style="cursor: pointer; padding: 18px 0; font-family: {{hfont}}; font-weight: {{hweight}}; font-size: 21px">Individu</summary><div style="padding-bottom: 16px"><a href="simpanan-individu.html" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Tabungan</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Simpanan Berjangka</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Giro</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Pinjaman</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Simulasi kredit</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Forex</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Kurs J Trust</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Suku bunga</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Tarif &amp; layanan</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">J Mobile</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">J Net</a></div></details><details style="border-bottom: 1px solid #D6E4EE"><summary style="cursor: pointer; padding: 18px 0; font-family: {{hfont}}; font-weight: {{hweight}}; font-size: 21px">Bisnis</summary><div style="padding-bottom: 16px"><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Simpanan Bisnis</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Simpanan Berjangka</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Giro</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Pinjaman Bisnis</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Trade Finance</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Cash Management</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Program Manfaat Karyawan</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Forex</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">J NET Business</a></div></details><details style="border-bottom: 1px solid #D6E4EE"><summary style="cursor: pointer; padding: 18px 0; font-family: {{hfont}}; font-weight: {{hweight}}; font-size: 21px">Promo</summary><div style="padding-bottom: 16px"><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Save My Swing</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Tabungan Rencana Berhadiah</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Program Giro Prime</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Semua promo produk</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Kuliner</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Belanja</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Staycation</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Semua promo merchant</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">J Trust Gourmet Choice 2026</a></div></details><details style="border-bottom: 1px solid #D6E4EE"><summary style="cursor: pointer; padding: 18px 0; font-family: {{hfont}}; font-weight: {{hweight}}; font-size: 21px">Tentang J Trust</summary><div style="padding-bottom: 16px"><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Informasi perusahaan</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Tata kelola perusahaan</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Hubungan investor</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Keberlanjutan</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Penghargaan</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Maskot J Trust</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Karir</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Berita korporasi</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">CSR</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Informasi</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Market update</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Tips &amp; edukasi</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Tentang J Trust Group</a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">J Trust Investments Indonesia<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="margin-left: 4px"><path d="M7 17L17 7M9 7h8v8"></path></svg></a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">J Trust Consulting Indonesia<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="margin-left: 4px"><path d="M7 17L17 7M9 7h8v8"></path></svg></a><a href="#" onClick="{{closeAll}}" style="display: block; padding: 10px 0; text-decoration: none; font-weight: 600; color: #0E2A47">Turn Around Asset Indonesia<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="margin-left: 4px"><path d="M7 17L17 7M9 7h8v8"></path></svg></a></div></details>
+          <div style="display: flex; gap: 12px; align-items: center; margin-top: 24px"><a class="jt-solid" href="#" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #0E2A47; color: #FFFFFF; font-weight: 700; text-decoration: none">Login J Net</a><span style="font-weight: 700; font-size: 14px">ID · EN · JP</span></div>
+        </div>
+      </sc-if>
+  </header>
+  <sc-if value="{{anyOpen}}" hint-placeholder-val="{{false}}">
+    <div aria-hidden="true" onClick="{{closeAll}}" style="position: fixed; inset: 0; z-index: 40; background: rgba(10,26,43,0.4)"></div>
+  </sc-if>
+
+<main>
+  <section style="position: relative; height: 100vh; max-height: 880px; min-height: 680px; overflow: hidden; background: #0E2A47; color: #FFFFFF">
+    <img src="assets/card-1792666183864.jpg" alt="Laki-laki tersenyum melihat ponsel di dekat kalkulator dan buku catatan" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 40%">
+    <span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,22,46,0.9) 0%, rgba(8,22,46,0.66) 42%, rgba(8,22,46,0) 72%)"></span>
+    <span aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 0; height: 240px; background: linear-gradient(180deg, rgba(8,22,46,0.7) 0%, rgba(8,22,46,0.35) 50%, rgba(8,22,46,0) 100%)"></span>
+    <div style="position: relative; max-width: 1420px; margin: 0 auto; padding: 0 24px; padding-top: 128px; padding-bottom: 72px; height: 100%; display: flex; flex-direction: column">
+      <p style="font-size: 14px; color: #C9DCEA"><a href="index.html" style="color: #C9DCEA; text-decoration: none">Beranda</a> › <a href="#" style="color: #C9DCEA; text-decoration: none">Individu</a> › <a href="simpanan-individu.html" style="color: #C9DCEA; text-decoration: none">Simpanan</a> › <span style="color: #FFFFFF; font-weight: 600">Tabungan TORA</span></p>
+      <div style="max-width: 660px; margin: auto 0">
+        <p style="font-size: 15px; font-weight: 700; letter-spacing: 0.04em; color: #FFD447; margin-bottom: 16px">Tabungan TORA</p>
+        <h1 style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: clamp(44px, 5.4vw, 68px); line-height: 1.02; letter-spacing: -0.035em">Saldo makin besar, bunga makin tinggi</h1>
+        <p style="font-size: 19px; line-height: 1.6; color: #E4EEF7; margin-top: 24px; max-width: 46ch">Tabungan untuk nasabah perorangan dan non-perorangan yang ingin mengembangkan dana, dengan kemudahan bertransaksi dan fleksibilitas mengelola keuangan.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px">
+          <button type="button" onClick="{{openTora}}" aria-haspopup="dialog" class="jt-solid" style="display: inline-flex; align-items: center; gap: 8px; min-height: 56px; padding: 0 28px; border: 0; border-radius: 999px; background: #FFFFFF; color: #0E2A47; font: 600 16px 'DM Sans', sans-serif; cursor: pointer">Buka Tabungan TORA<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+          <a href="#tora-bunga" onClick="{{goRate}}" class="jt-ghost-l" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 28px; border-radius: 999px; border: 2px solid #FFFFFF; color: #FFFFFF; font-weight: 600; text-decoration: none">Lihat suku bunga</a>
+        </div>
+      </div>
+      <dl style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px">
+        <div style="padding: 14px 20px; border-radius: 18px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px)"><dt style="font-size: 13px; color: #C9DCEA; text-align: left">Setoran awal</dt><dd style="font-size: 20px; font-weight: 700; margin: 2px 0 0; text-align: left">Rp500.000</dd></div>
+        <div style="padding: 14px 20px; border-radius: 18px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px)"><dt style="font-size: 13px; color: #C9DCEA; text-align: left">Saldo minimum</dt><dd style="font-size: 20px; font-weight: 700; margin: 2px 0 0; text-align: left">Rp100.000</dd></div>
+        <div style="padding: 14px 20px; border-radius: 18px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px)"><dt style="font-size: 13px; color: #C9DCEA; text-align: left">Suku bunga</dt><dd style="font-size: 20px; font-weight: 700; margin: 2px 0 0; text-align: left">Hingga 2,75% p.a.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section style="padding: 112px 0 96px">
+    <div style="max-width: 1420px; margin: 0 auto; padding: 0 24px">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap">
+        <div style="max-width: 760px"><h2 style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 48px; line-height: 1.05; letter-spacing: -0.035em">Semua yang kamu butuhkan untuk menabung</h2><p style="color: #41586F; font-size: 19px; margin-top: 16px">Bunga, transfer, dan tarik tunai dalam satu rekening.</p></div>
+        <a href="assets/riplay-tabungan-tora.pdf" target="_blank" rel="noopener" class="jt-link" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #1670AA; font-weight: 700; font-size: 17px; text-decoration: none">Unduh RIPLAY (PDF)<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 20px; margin-top: 48px">
+        <div class="jt-rate" style="background: #EEF6FC; border-radius: 32px; padding: 32px; display: flex; flex-direction: column; gap: 14px; min-height: 280px">
+          <img class="jt-rate-ico" src="assets/tora-ico-bunga.webp" alt="" style="display: block; height: 72px; width: 96px; max-width: none; object-fit: contain; align-self: flex-start; object-position: left center">
+          <h3 style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.2; margin-top: 18px">Bunga dari saldo harian</h3>
+          <p style="font-size: 16px; line-height: 1.6; color: #41586F">Suku bunga berjenjang dihitung dari saldo akhir hari dan dibayarkan setiap tanggal 1.</p>
+        </div>
+        <div class="jt-rate" style="background: #EEF6FC; border-radius: 32px; padding: 32px; display: flex; flex-direction: column; gap: 14px; min-height: 280px">
+          <img class="jt-rate-ico" src="assets/tora-ico-transfer.webp" alt="" style="display: block; height: 72px; width: 96px; max-width: none; object-fit: contain; align-self: flex-start; object-position: left center">
+          <h3 style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.2; margin-top: 18px">Gratis 10x transfer per bulan</h3>
+          <p style="font-size: 16px; line-height: 1.6; color: #41586F">Transfer online, SKN, RTGS, dan BI Fast lewat J Mobile dan J Net.</p>
+        </div>
+        <div class="jt-rate" style="background: #EEF6FC; border-radius: 32px; padding: 32px; display: flex; flex-direction: column; gap: 14px; min-height: 280px">
+          <img class="jt-rate-ico" src="assets/tora-ico-atm.webp" alt="" style="display: block; height: 72px; width: 96px; max-width: none; object-fit: contain; align-self: flex-start; object-position: left center">
+          <h3 style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.2; margin-top: 18px">Gratis 4x tarik tunai sehari</h3>
+          <p style="font-size: 16px; line-height: 1.6; color: #41586F">Di ATM bank lain jaringan ATM Bersama dan Prima.</p>
+        </div>
+        <div class="jt-rate" style="background: #EEF6FC; border-radius: 32px; padding: 32px; display: flex; flex-direction: column; gap: 14px; min-height: 280px">
+          <img class="jt-rate-ico" src="assets/tora-ico-admin.webp" alt="" style="display: block; height: 72px; width: 96px; max-width: none; object-fit: contain; align-self: flex-start; object-position: left center">
+          <h3 style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.2; margin-top: 18px">Bebas biaya administrasi</h3>
+          <p style="font-size: 16px; line-height: 1.6; color: #41586F">Kalau saldo akhir bulanmu lebih dari Rp500.000.</p>
+        </div>
+      </div>
+      <p style="font-size: 14px; color: #56677A; margin-top: 20px">Gratis transfer dan tarik tunai berlaku untuk nasabah perorangan dan non-perorangan, kecuali BPR. Transaksi berikutnya mengikuti ketentuan yang berlaku.</p>
+    </div>
+  </section>
+
+  <section id="tora-bunga" style="padding: 96px 0; background: linear-gradient(160deg, #06121F 0%, #081A33 55%, #0C2550 100%); color: #FFFFFF">
+    <div style="max-width: 1420px; margin: 0 auto; padding: 0 24px">
+      <div style="text-align: center; max-width: 760px; margin: 0 auto"><p style="font-size: 15px; font-weight: 700; letter-spacing: 0.04em; color: #4CAFEA; margin-bottom: 16px">Suku bunga</p><h2 style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 48px; line-height: 1.05; letter-spacing: -0.035em">Bunga naik seiring saldomu</h2><p style="color: #B8C4D2; font-size: 19px; margin-top: 16px">Lima jenjang saldo, dihitung dari saldo akhir hari.</p></div>
+      <div class="jt-tiers" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 16px; margin-top: 48px; align-items: end">
+        <sc-for list="{{tiers}}" as="t" hint-placeholder-count="5">
+          <button type="button" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" class="jt-tier" style="text-align: left; display: flex; flex-direction: column; gap: 10px; min-height: {{t.h}}; padding: 28px; border-radius: 28px; border: 2px solid {{t.bd}}; background: {{t.bg}}; color: {{t.fg}}; font-family: 'DM Sans', sans-serif; cursor: pointer">
+            <span style="font-size: 14px; font-weight: 700; letter-spacing: 0.04em; color: {{t.eyebrow}}">{{t.label}}</span>
+            <span style="font-size: 44px; font-weight: 700; line-height: 1; letter-spacing: -0.03em; margin-top: auto">{{t.rate}}<span style="font-size: 18px; font-weight: 600"> p.a.</span></span>
+            <span style="font-size: 16px; line-height: 1.5; color: {{t.sub}}">{{t.range}}</span>
+            <span style="font-size: 14px; font-weight: 600; line-height: 1.45; padding-top: 12px; margin-top: 4px; border-top: 1px solid {{t.line}}; color: {{t.exc}}">{{t.ex}}</span>
+          </button>
+        </sc-for>
+      </div>
+      <p style="font-size: 14px; color: #8FA3B8; margin-top: 20px; text-align: center">Suku bunga dapat berubah sewaktu-waktu mengikuti ketentuan BI, LPS, dan kebijakan internal Bank. Pilih jenjang untuk mencobanya di simulasi.</p>
+    </div>
+  </section>
+
+  <section id="tora-simulasi" style="padding: 112px 0">
+    <div style="max-width: 1420px; margin: 0 auto; padding: 0 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px 80px">
+      <div style="flex: 1 1 420px; max-width: 560px">
+        <p style="font-size: 15px; font-weight: 700; letter-spacing: 0.04em; color: #1670AA; margin-bottom: 16px">Simulasi bunga</p>
+        <h2 style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 48px; line-height: 1.05; letter-spacing: -0.035em">Hitung perkiraan bungamu</h2>
+        <p style="color: #41586F; font-size: 19px; line-height: 1.6; margin-top: 16px">Bunga dihitung dari saldo akhir hari × suku bunga × jumlah hari penempatan, dibagi 365 atau 366 hari. Bunga diakumulasi dan dibayarkan setiap tanggal 1 setelah dipotong pajak 20%.</p>
+        <p style="font-size: 14px; color: #56677A; margin-top: 16px">Simulasi ini bersifat ilustrasi dan memakai 365 hari. Perhitungan yang akurat mengikuti sistem Bank.</p>
+      </div>
+      <div style="flex: 1 1 480px; max-width: 640px; background: #0E2A47; color: #FFFFFF; border-radius: 40px; padding: 40px; box-shadow: 0 24px 60px rgba(14,42,71,0.22); position: relative; overflow: hidden; isolation: isolate"><span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,18,72,0.4) 0%, rgba(6,18,72,0.15) 55%, rgba(6,18,72,0.35) 100%); z-index: -1; pointer-events: none"></span><img src="assets/tora-calc-bg.webp" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; opacity: 1; z-index: -2; pointer-events: none">
+        <label for="tora-bal" style="font-size: 15px; font-weight: 600; color: #C9DCEA">Saldo akhir hari</label>
+        <div style="position: relative; margin-top: 10px">
+          <span aria-hidden="true" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); font-size: 28px; font-weight: 700; color: #8FB4D2">Rp</span>
+          <input id="tora-bal" type="text" inputmode="numeric" autocomplete="off" value="{{balText}}" onChange="{{setBal}}" class="jt-in" style="width: 100%; min-height: 72px; padding: 0 20px 0 68px; border: 1px solid rgba(255,255,255,0.28); border-radius: 18px; background: rgba(255,255,255,0.08); color: #FFFFFF; font: 700 30px 'DM Sans', sans-serif; letter-spacing: -0.01em; box-sizing: border-box">
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px">
+          <sc-for list="{{presets}}" as="pr" hint-placeholder-count="4"><button type="button" onClick="{{pr.pick}}" class="jt-chip" style="min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.35); background: {{pr.bg}}; color: {{pr.fg}}; font: 600 14px 'DM Sans', sans-serif; cursor: pointer">{{pr.label}}</button></sc-for>
+        </div>
+        <div aria-live="polite" style="margin-top: 32px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.16); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+          <div><p style="font-size: 14px; color: #C9DCEA">Suku bunga</p><p style="font-size: 28px; font-weight: 700; margin-top: 4px">{{calcRate}}</p></div>
+          <div><p style="font-size: 14px; color: #C9DCEA">Bunga per hari</p><p style="font-size: 28px; font-weight: 700; margin-top: 4px">{{calcDay}}</p></div>
+          <div><p style="font-size: 14px; color: #C9DCEA">Perkiraan 30 hari, sebelum pajak</p><p style="font-size: 28px; font-weight: 700; margin-top: 4px">{{calcMonth}}</p></div>
+          <div><p style="font-size: 14px; color: #C9DCEA">Setelah pajak 20%</p><p style="font-size: 28px; font-weight: 700; margin-top: 4px; color: #FFD447">{{calcNet}}</p></div>
+        </div>
+        <sc-if value="{{calcZero}}" hint-placeholder-val="{{false}}"><p style="font-size: 14px; color: #FFD447; margin-top: 20px">Saldo di bawah Rp2 juta belum mendapat bunga.</p></sc-if>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 32px 0 112px">
+    <div style="max-width: 1420px; margin: 0 auto; padding: 0 24px; display: flex; flex-wrap: wrap-reverse; align-items: center; gap: 48px 80px">
+      <img src="assets/card-kredit.jpg" alt="Laki-laki tersenyum membayar dengan kartu debit di toko" style="flex: 1 1 480px; max-width: 680px; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 40px">
+      <div style="flex: 1 1 420px; max-width: 560px">
+        <p style="font-size: 15px; font-weight: 700; letter-spacing: 0.04em; color: #1670AA; margin-bottom: 16px">Kartu Debit dan e-banking</p>
+        <h2 style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 48px; line-height: 1.05; letter-spacing: -0.035em">Pakai saldomu di mana saja</h2>
+        <p style="color: #41586F; font-size: 19px; line-height: 1.6; margin-top: 16px">Kartu Debit J Trust Bank bisa dipakai di jaringan ATM J Trust Bank, ATM Bersama, Prima, dan jaringan lain yang bekerja sama dengan J Trust Bank.</p>
+        <ul style="list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-direction: column; gap: 16px">
+          <li style="display: flex; gap: 14px; align-items: flex-start"><span aria-hidden="true" style="flex: none; width: 32px; height: 32px; border-radius: 50%; background: #E8F5FD; color: #1670AA; display: grid; place-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span style="font-size: 17px; line-height: 1.55"><strong>Nasabah perorangan</strong> bisa cek rekening dan transaksi kapan saja lewat J Mobile dan J Net.</span></li>
+          <li style="display: flex; gap: 14px; align-items: flex-start"><span aria-hidden="true" style="flex: none; width: 32px; height: 32px; border-radius: 50%; background: #E8F5FD; color: #1670AA; display: grid; place-items: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span style="font-size: 17px; line-height: 1.55"><strong>Nasabah non-perorangan</strong> memakai J Net Business. Kartu Debit tersedia dengan melampirkan surat kuasa pemegang kartu ATM.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 96px 0; background: linear-gradient(160deg, #06121F 0%, #081A33 55%, #0C2550 100%); color: #FFFFFF">
+    <div style="max-width: 1420px; margin: 0 auto; padding: 0 24px">
+      <div style="max-width: 760px"><p style="font-size: 15px; font-weight: 700; letter-spacing: 0.04em; color: #4CAFEA; margin-bottom: 16px">Tarif dan biaya</p><h2 style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 48px; line-height: 1.05; letter-spacing: -0.035em">Biaya yang jelas dari awal</h2></div>
+      <dl style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 0 48px; margin-top: 40px; background: transparent; color: #FFFFFF; border-radius: 32px; padding: 12px 40px">
+        <sc-for list="{{fees}}" as="f" hint-placeholder-count="10">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.18)">
+            <dt><span style="font-size: 17px; font-weight: 600">{{f.name}}</span><span style="display: block; font-size: 14px; color: #B8C4D2; margin-top: 2px">{{f.note}}</span></dt>
+            <dd style="font-size: 17px; font-weight: 700; white-space: nowrap; text-align: right">{{f.fee}}</dd>
+          </div>
+        </sc-for>
+      </dl>
+      <p style="font-size: 14px; color: #8FA3B8; margin-top: 20px">Transfer lewat J Mobile dan J Net gratis hingga 10 kali per bulan. Tarik tunai di ATM Bersama dan Prima gratis hingga 4 kali per hari.</p>
+    </div>
+  </section>
+
+  <section style="padding: 112px 0">
+    <div style="max-width: 1420px; margin: 0 auto; padding: 0 24px">
+      <div style="max-width: 760px"><p style="font-size: 15px; font-weight: 700; letter-spacing: 0.04em; color: #1670AA; margin-bottom: 16px">Persyaratan</p><h2 style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 48px; line-height: 1.05; letter-spacing: -0.035em">Siapkan dokumen ini</h2><p style="color: #41586F; font-size: 19px; margin-top: 16px">Tiga langkah, lalu rekeningmu siap diproses.</p></div>
+      <ol style="list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px"><li style="display: flex; gap: 16px; align-items: center; background: #F2F8FC; border-radius: 24px; padding: 20px 24px"><span aria-hidden="true" style="flex: none; width: 44px; height: 44px; border-radius: 50%; background: #0E2A47; color: #FFFFFF; display: grid; place-items: center; font-weight: 700; font-size: 18px">1</span><span><strong style="display: block; font-size: 17px; color: #0E2A47">Isi formulir</strong><span style="font-size: 15px; color: #41586F">Formulir aplikasi pembukaan rekening</span></span></li><li style="display: flex; gap: 16px; align-items: center; background: #F2F8FC; border-radius: 24px; padding: 20px 24px"><span aria-hidden="true" style="flex: none; width: 44px; height: 44px; border-radius: 50%; background: #0E2A47; color: #FFFFFF; display: grid; place-items: center; font-weight: 700; font-size: 18px">2</span><span><strong style="display: block; font-size: 17px; color: #0E2A47">Setor dana awal</strong><span style="font-size: 15px; color: #41586F">Minimal Rp500.000</span></span></li><li style="display: flex; gap: 16px; align-items: center; background: #F2F8FC; border-radius: 24px; padding: 20px 24px"><span aria-hidden="true" style="flex: none; width: 44px; height: 44px; border-radius: 50%; background: #0E2A47; color: #FFFFFF; display: grid; place-items: center; font-weight: 700; font-size: 18px">3</span><span><strong style="display: block; font-size: 17px; color: #0E2A47">Lampirkan dokumen</strong><span style="font-size: 15px; color: #41586F">Sesuai jenis nasabah di bawah</span></span></li></ol>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(480px, 100%), 1fr)); gap: 20px; margin-top: 20px; align-items: stretch">
+        <div style="border: 1px solid #D6E4EE; border-radius: 32px; padding: 36px"><p style="font-size: 14px; font-weight: 700; letter-spacing: 0.04em; color: #1670AA">Nasabah perorangan</p><h3 style="font-size: 22px; font-weight: 700; margin-top: 20px">Warga Negara Indonesia</h3><ul style="list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 16px; line-height: 1.55; color: #41586F"><li style="display: flex; gap: 12px; align-items: flex-start"><span aria-hidden="true" style="flex: none; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; background: #E8F5FD; color: #1670AA; display: grid; place-items: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span>Kartu Tanda Penduduk (KTP).</span></li></ul><div style="height: 1px; background: #E6EEF5; margin: 28px 0"></div><h3 style="font-size: 22px; font-weight: 700">Warga Negara Asing</h3><ul style="list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 16px; line-height: 1.55; color: #41586F"><li style="display: flex; gap: 12px; align-items: flex-start"><span aria-hidden="true" style="flex: none; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; background: #E8F5FD; color: #1670AA; display: grid; place-items: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span>Paspor dan KITAS atau KITAP, <strong>atau</strong> paspor dan visa dengan surat referensi dari WNI yang punya rekening aktif di J Trust Bank.</span></li><li style="display: flex; gap: 12px; align-items: flex-start"><span aria-hidden="true" style="flex: none; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; background: #E8F5FD; color: #1670AA; display: grid; place-items: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span>TIN atau NPWP. Jika sudah punya NPWP, TIN tidak wajib. Jika negaramu mengeluarkan TIN, wajib menyampaikan TIN. Jika tidak, lampirkan surat pernyataan tidak memiliki TIN.</span></li></ul></div>
+        <div style="border: 1px solid #D6E4EE; border-radius: 32px; padding: 36px"><p style="font-size: 14px; font-weight: 700; letter-spacing: 0.04em; color: #1670AA">Non-perorangan atau badan usaha</p><h3 style="font-size: 22px; font-weight: 700; margin-top: 20px">Dokumen perusahaan</h3><ul style="list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 16px; line-height: 1.55; color: #41586F"><li style="display: flex; gap: 12px; align-items: flex-start"><span aria-hidden="true" style="flex: none; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; background: #E8F5FD; color: #1670AA; display: grid; place-items: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span>Akta pendirian dan pengesahan Kemenkumham.</span></li><li style="display: flex; gap: 12px; align-items: flex-start"><span aria-hidden="true" style="flex: none; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; background: #E8F5FD; color: #1670AA; display: grid; place-items: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span>Akta penyesuaian UU PT dan SK Kemenkumham, untuk PT yang berdiri sebelum 2007.</span></li><li style="display: flex; gap: 12px; align-items: flex-start"><span aria-hidden="true" style="flex: none; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; background: #E8F5FD; color: #1670AA; display: grid; place-items: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span>Perubahan susunan pengurus terakhir yang masih berlaku.</span></li><li style="display: flex; gap: 12px; align-items: flex-start"><span aria-hidden="true" style="flex: none; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; background: #E8F5FD; color: #1670AA; display: grid; place-items: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span>Nomor Induk Berusaha (NIB).</span></li><li style="display: flex; gap: 12px; align-items: flex-start"><span aria-hidden="true" style="flex: none; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; background: #E8F5FD; color: #1670AA; display: grid; place-items: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span>Identitas asli seluruh pengurus dan dewan komisaris sesuai anggaran dasar terbaru.</span></li><li style="display: flex; gap: 12px; align-items: flex-start"><span aria-hidden="true" style="flex: none; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; background: #E8F5FD; color: #1670AA; display: grid; place-items: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span>NPWP perusahaan, atau NITKU khusus perusahaan kantor cabang.</span></li><li style="display: flex; gap: 12px; align-items: flex-start"><span aria-hidden="true" style="flex: none; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; background: #E8F5FD; color: #1670AA; display: grid; place-items: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span>NPWP pengurus.</span></li><li style="display: flex; gap: 12px; align-items: flex-start"><span aria-hidden="true" style="flex: none; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; background: #E8F5FD; color: #1670AA; display: grid; place-items: center"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span>Dokumen lain yang diperlukan.</span></li></ul></div>
+      </div>
+      <a href="assets/riplay-tabungan-tora.pdf" target="_blank" rel="noopener" class="jt-link" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 24px; color: #1670AA; font-weight: 700; font-size: 16px; text-decoration: none">Lihat detail persyaratan di RIPLAY<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </div>
+  </section>
+
+  <section style="padding: 96px 0; background: linear-gradient(160deg, #06121F 0%, #081A33 55%, #0C2550 100%); color: #FFFFFF">
+    <div style="max-width: 1420px; margin: 0 auto; padding: 0 24px">
+      <div style="max-width: 760px"><p style="font-size: 15px; font-weight: 700; letter-spacing: 0.04em; color: #4CAFEA; margin-bottom: 16px">Risiko dan ketentuan</p><h2 style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 48px; line-height: 1.05; letter-spacing: -0.035em">Yang perlu kamu tahu</h2><p style="color: #B8C4D2; font-size: 19px; margin-top: 16px">Baca sebelum membuka rekening.</p></div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 24px; margin-top: 40px">
+        <div class="jt-rate jt-glass" style="background: rgba(255,255,255,0.06); color: #FFFFFF; border-radius: 32px; padding: 36px; border: 1px solid rgba(255,255,255,0.14); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); display: flex; flex-direction: column; gap: 14px"><img class="jt-rate-ico" src="assets/tora-risk-bunga.webp" alt="" style="display: block; height: 72px; width: 96px; max-width: none; object-fit: contain; align-self: flex-start; object-position: left center"><p style="font-size: 12px; font-weight: 700; color: #FFD447; display: inline-block; align-self: flex-start; background: rgba(255,212,71,0.14); padding: 3px 12px; border-radius: 999px; margin-top: 6px">Risiko 1</p><h3 style="font-family: 'DM Sans', sans-serif; font-size: 26px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em">Suku bunga dan biaya bisa berubah</h3><p style="font-size: 17px; line-height: 1.6; margin-top: 0; color: #C9D6E3">Suku bunga, tarif, dan biaya dapat berubah, antara lain karena perubahan suku bunga BI, LPS, atau kebijakan internal Bank.</p></div>
+        <div class="jt-rate jt-glass" style="background: rgba(255,255,255,0.06); color: #FFFFFF; border-radius: 32px; padding: 36px; border: 1px solid rgba(255,255,255,0.14); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); display: flex; flex-direction: column; gap: 14px"><img class="jt-rate-ico" src="assets/tora-risk-pin.webp" alt="" style="display: block; height: 72px; width: 96px; max-width: none; object-fit: contain; align-self: flex-start; object-position: left center"><p style="font-size: 12px; font-weight: 700; color: #FFD447; display: inline-block; align-self: flex-start; background: rgba(255,212,71,0.14); padding: 3px 12px; border-radius: 999px; margin-top: 6px">Risiko 2</p><h3 style="font-family: 'DM Sans', sans-serif; font-size: 26px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em">Jaga PIN, password, dan kartumu</h3><p style="font-size: 17px; line-height: 1.6; margin-top: 0; color: #C9D6E3">Penyalahgunaan e-channel, PIN atau password, dan Kartu Debit sepenuhnya menjadi <strong>tanggung jawab nasabah</strong>.</p></div>
+        <div class="jt-rate jt-glass" style="background: rgba(255,255,255,0.06); color: #FFFFFF; border-radius: 32px; padding: 36px; border: 1px solid rgba(255,255,255,0.14); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); display: flex; flex-direction: column; gap: 14px"><img class="jt-rate-ico" src="assets/tora-risk-lps.webp" alt="" style="display: block; height: 72px; width: 96px; max-width: none; object-fit: contain; align-self: flex-start; object-position: left center"><p style="font-size: 12px; font-weight: 700; color: #FFD447; display: inline-block; align-self: flex-start; background: rgba(255,212,71,0.14); padding: 3px 12px; border-radius: 999px; margin-top: 6px">Risiko 3</p><h3 style="font-family: 'DM Sans', sans-serif; font-size: 26px; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em">Ada batas penjaminan LPS</h3><p style="font-size: 17px; line-height: 1.6; margin-top: 0; color: #C9D6E3">Jika simpanan di satu bank melebihi Rp2 miliar dan suku bunga yang diterima melebihi tingkat bunga maksimum penjaminan LPS, tabungan <strong>tidak termasuk program penjaminan LPS</strong>.</p></div>
+      </div>
+      <div style="margin-top: 20px; background: rgba(255,255,255,0.06); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.14); border-radius: 28px; padding: 32px 36px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px)">
+        <h3 style="font-size: 22px; font-weight: 700">Disclaimer</h3>
+        <ol style="margin: 16px 0 0; padding-left: 22px; display: block; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 0; font-size: 15px; line-height: 1.6; color: #C9D6E3; column-width: 420px; column-gap: 48px">
+          <li style="break-inside: avoid; margin-bottom: 14px">Nasabah telah membaca dengan teliti, menerima penjelasan, dan memahami produk Tabungan TORA, serta bertanggung jawab sepenuhnya atas segala akibat yang timbul. Nasabah berhak bertanya kepada petugas Bank tentang isi ringkasan ini, termasuk jenis, fitur, tarif, limit transaksi, suku bunga, manfaat, risiko, biaya, dan layanan.</li>
+          <li style="break-inside: avoid; margin-bottom: 14px">Ringkasan Informasi Produk dan Layanan ini bukan bagian dari aplikasi pembukaan rekening.</li>
+          <li style="break-inside: avoid; margin-bottom: 14px">Nasabah wajib membaca, memahami, dan menandatangani aplikasi pembukaan rekening.</li>
+          <li style="break-inside: avoid; margin-bottom: 14px">Jika Bank mengubah kebijakan suku bunga, biaya, fitur, layanan, risiko, serta syarat dan ketentuan, Bank akan menginformasikannya melalui media publikasi resmi J Trust Bank dalam 30 hari kerja sebelum perubahan berlaku.</li>
+          <li style="break-inside: avoid; margin-bottom: 14px">J Trust Bank dapat menolak permohonan yang tidak memenuhi persyaratan dan peraturan yang berlaku.</li>
+          <li style="break-inside: avoid; margin-bottom: 14px">J Trust Bank dapat memblokir dan/atau menutup rekening untuk kepentingan perpajakan, rekening yang terindikasi penipuan, atau nasabah yang menjadi tersangka/terdakwa tindak pidana pencucian uang, pendanaan terorisme, atau tindak pidana lain sesuai undang-undang dan/atau ketentuan regulator yang berlaku.</li>
+          <li style="break-inside: avoid; margin-bottom: 14px">Ringkasan ini telah disesuaikan dengan peraturan perundang-undangan, termasuk peraturan Otoritas Jasa Keuangan.</li>
+          <li style="break-inside: avoid; margin-bottom: 14px">Informasi ini berlaku sampai ada perubahan terbaru Ringkasan Informasi Produk dan Layanan.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 96px 0">
+    <div style="max-width: 1420px; margin: 0 auto; padding: 0 24px; display: flex; flex-wrap: wrap; gap: 40px 80px; align-items: flex-start">
+      <div style="flex: 1 1 340px; max-width: 460px"><h2 style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 48px; line-height: 1.05; letter-spacing: -0.035em">Pertanyaan seputar Tabungan TORA</h2><p style="color: #41586F; font-size: 19px; margin-top: 16px">Bunga, penjaminan, dan status rekening.</p></div>
+      <div style="flex: 1 1 560px; display: flex; flex-direction: column; gap: 12px">
+        <sc-for list="{{faqs}}" as="q" hint-placeholder-count="6">
+          <div class="jt-acc" style="background: {{q.cardBg}}; border: 1.5px solid {{q.cardBd}}; border-radius: 24px; overflow: hidden; transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; box-shadow: {{q.cardSh}}">
+            <h3 style="margin: 0"><button type="button" id="{{q.bid}}" onClick="{{q.toggle}}" aria-expanded="{{q.exp}}" aria-controls="{{q.pid}}" class="jt-faq" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 72px; padding: 20px 28px; border: 0; background: transparent; color: #0E2A47; font: 700 18px/1.35 'DM Sans', sans-serif; text-align: left; cursor: pointer">{{q.q}}<span aria-hidden="true" style="flex: none; width: 36px; height: 36px; border-radius: 50%; background: {{q.icBg}}; color: {{q.icFg}}; display: grid; place-items: center; transition: background-color 0.3s ease, color 0.3s ease"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"></path><path d="M12 5v14" style="transform: scaleY({{q.vs}}); transform-origin: 50% 50%; transform-box: fill-box; transition: transform 0.3s ease"></path></svg></span></button></h3>
+            <div id="{{q.pid}}" role="region" aria-labelledby="{{q.bid}}" aria-hidden="{{q.hid}}" style="display: grid; grid-template-rows: {{q.rows}}; transition: grid-template-rows 0.4s cubic-bezier(0.2,0.8,0.2,1)">
+              <div style="overflow: hidden; min-height: 0"><p style="margin: 0; padding: 0 28px 24px; font-size: 16px; line-height: 1.65; color: #41586F; opacity: {{q.op}}; transition: opacity 0.3s ease">{{q.a}}</p></div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 48px 0 96px" aria-labelledby="jm-title">
+    <div style="max-width: 1420px; margin: 0 auto; padding: 0 24px">
+      <div style="position: relative; overflow: hidden; background: #0B2A9E; border-radius: 40px; padding: 72px 64px">
+        <img src="assets/jm-bg.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; opacity: 0.9">
+        <span aria-hidden="true" style="position: absolute; inset: 0; background: rgba(6,18,72,0.28)"></span>
+        <span aria-hidden="true" style="position: absolute; right: -140px; top: -180px; width: 460px; height: 460px; border-radius: 50%; border: 2px solid #FFFFFF; opacity: {{jmOrnA}}; transition: opacity 0.6s ease"></span>
+        
+        <span aria-hidden="true" style="position: absolute; right: -60px; bottom: -90px; width: 240px; height: 240px; border-radius: 50%; background: #FF3D8B; opacity: {{jmOrnB}}; transition: opacity 0.6s ease"></span>
+        <div style="position: relative; isolation: isolate; display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap">
+          <img src="assets/jm-banner.png" alt="" aria-hidden="true" style="position: absolute; top: -72px; left: -64px; right: -64px; bottom: -72px; width: calc(100% + 128px); height: calc(100% + 144px); max-width: none; object-fit: cover; object-position: right center; z-index: -1; opacity: {{jmBanOp}}; transition: opacity 0.6s ease; pointer-events: none">
+          <span aria-hidden="true" style="position: absolute; top: -72px; left: -64px; right: -64px; bottom: -72px; z-index: -1; background: linear-gradient(90deg, rgba(6,18,72,0.45) 0%, rgba(6,18,72,0.2) 40%, rgba(6,18,72,0) 60%); opacity: {{jmBanOp}}; transition: opacity 0.6s ease; pointer-events: none"></span>
+          <div style="max-width: 760px; color: #FFFFFF">
+            <h2 id="jm-title" style="font-family: {{hfont}}; font-size: 48px; font-weight: {{hweight}}; line-height: 1.05; letter-spacing: -0.02em">Buka rekening lewat J Mobile</h2>
+            <p style="color: #D6E4F5; font-size: 19px; margin-top: 16px">Tanpa antre dan tanpa ke cabang. Cukup siapkan e-KTP dan ponselmu.</p>
+          </div>
+          <button type="button" aria-expanded="{{jmExp}}" aria-controls="jm-body" onClick="{{jmToggle}}" class="jt-solid" style="display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 28px; border-radius: 999px; border: 0; background: #FFFFFF; color: #0E2A47; font: 600 17px 'DM Sans', sans-serif; cursor: pointer">{{jmBtnLabel}}<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" style="transform: {{jmChevRot}}; transition: transform 0.4s ease"><path d="M6 9l6 6 6-6"></path></svg></button>
+        </div>
+        <div id="jm-body" style="position: relative; overflow: hidden; max-height: {{jmBodyH}}; opacity: {{jmBodyOp}}; margin-top: {{jmBodyM}}; transition: max-height 0.7s cubic-bezier(0.22,0.61,0.36,1), opacity 0.5s ease, margin-top 0.7s cubic-bezier(0.22,0.61,0.36,1)">
+          <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+            <div style="flex: 1 1 480px; min-width: 0">
+              <div style="position: relative; height: 620px; border-radius: 40px; overflow: hidden; background: {{sky}}">
+              <div aria-hidden="{{jv1.hidden}}" style="position: absolute; inset: 0; opacity: {{jv1.op}}; transition: opacity 0.7s ease"><img src="assets/jm-step1.jpg" alt="Perempuan tersenyum memegang ponsel, dengan kartu unduh aplikasi J Mobile dari App Store dan Google Play" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transform: {{jv1.imgTf}}; transition: transform 1.2s cubic-bezier(0.22,0.61,0.36,1)"></div>
+              <div aria-hidden="{{jv2.hidden}}" style="position: absolute; inset: 0; opacity: {{jv2.op}}; transition: opacity 0.7s ease"><img src="assets/jm-step2.jpg" alt="Perempuan berswafoto dengan ponsel untuk verifikasi wajah yang berhasil" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transform: {{jv2.imgTf}}; transition: transform 1.2s cubic-bezier(0.22,0.61,0.36,1)"></div>
+              <div aria-hidden="{{jv3.hidden}}" style="position: absolute; inset: 0; opacity: {{jv3.op}}; transition: opacity 0.7s ease"><img src="assets/jm-step3.jpg" alt="Perempuan bersorak melihat ponsel yang menampilkan rekening J Mobile berhasil dibuat" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; transform: {{jv3.imgTf}}; transition: transform 1.2s cubic-bezier(0.22,0.61,0.36,1)"></div>
+              <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 120px; background: #2E9BDB; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #FFFFFF; text-align: center"><span style="font-size: 17px; display: flex; align-items: center; gap: 8px"><span>Tanpa harus ke cabang</span></span>
+                <strong style="font-size: 22px; margin-top: 4px">Rekening siap dari HP-mu</strong>
+              </div>
+            </div>
+            </div>
+            <div style="flex: 1 1 480px; min-width: 0">
+              <div role="tablist" aria-label="Langkah buka rekening" style="display: flex; flex-direction: column; gap: 12px">
+            <sc-for list="{{jmSteps}}" as="st" hint-placeholder-count="3">
+              <button type="button" role="tab" aria-selected="{{st.sel}}" onClick="{{st.pick}}" style="display: flex; gap: 36px; align-items: center; width: 100%; text-align: left; border: 0; border-radius: 28px; padding: 32px 40px; background: {{st.bg}}; color: #0E2A47; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background-color 0.45s ease">
+                <span style="flex: none; width: 56px; text-align: center; font-family: {{hfont}}; font-weight: {{hweight}}; font-size: 64px; line-height: 1; color: {{st.numC}}; transform: {{st.numTf}}; transition: color 0.45s ease, transform 0.45s cubic-bezier(0.22,0.61,0.36,1)">{{st.num}}</span>
+                <span style="flex: 1; min-width: 0">
+                  <span style="display: block; font-family: {{hfont}}; font-weight: {{hweight}}; font-size: 26px; line-height: 1.2; color: {{st.titleC}}; transition: color 0.45s ease">{{st.title}}</span>
+                  <span style="display: block; overflow: hidden; max-height: {{st.descH}}; opacity: {{st.descOp}}; margin-top: {{st.descM}}; transform: {{st.descTf}}; font-size: 17px; line-height: 1.55; color: #41586F; transition: max-height 0.5s cubic-bezier(0.22,0.61,0.36,1), opacity 0.4s ease 0.1s, margin-top 0.5s ease, transform 0.5s cubic-bezier(0.22,0.61,0.36,1)">{{st.desc}}</span>
+                </span>
+              </button>
+            </sc-for>
+          </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; margin-top: 32px">
+                <button type="button" aria-controls="jm-body" aria-expanded="{{jmExp}}" onClick="{{jmToggle}}" class="jt-link" style="display: inline-flex; align-items: center; gap: 8px; margin: 0; padding: 8px 0; min-height: 44px; border: 0; background: transparent; color: #FFFFFF; font: 700 16px 'DM Sans', sans-serif; text-decoration: underline; text-underline-offset: 6px; cursor: pointer">Sembunyikan<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 15l6-6 6 6"></path></svg></button>
+                <div style="display: flex; gap: 12px; flex-wrap: wrap"><a href="#" aria-label="Download J Mobile di App Store" class="jt-solid" style="display: inline-block; border-radius: 10px"><img src="assets/badge-appstore.png" alt="Download on the App Store" style="display: block; height: 52px; width: auto"></a><a href="#" aria-label="Download J Mobile di Google Play" class="jt-solid" style="display: inline-block; border-radius: 10px"><img src="assets/badge-googleplay-v2.png" alt="Get it on Google Play" style="display: block; height: 52px; width: auto"></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tora-cta" style="padding: 112px 0; background: linear-gradient(160deg, #06121F 0%, #081A33 55%, #0C2550 100%); color: #FFFFFF; text-align: center">
+    <div style="max-width: 880px; margin: 0 auto; padding: 0 24px; display: flex; flex-direction: column; align-items: center">
+      <img class="jt-fab-img" src="assets/tora-cta-safe.webp" alt="" style="display: block; height: 160px; width: auto; filter: drop-shadow(0 16px 28px rgba(0,0,0,0.45))">
+      <h2 style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: clamp(40px, 5vw, 60px); line-height: 1.04; letter-spacing: -0.035em; margin-top: 28px">Mulai kembangkan danamu</h2>
+      <p style="font-size: 19px; line-height: 1.6; color: #B8C4D2; margin-top: 16px; max-width: 56ch">Isi pendaftaran sekarang, lalu datang ke kantor cabang J Trust Bank pilihanmu untuk menyelesaikan pembukaan rekening.</p>
+      <ul style="list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-wrap: wrap; justify-content: center; row-gap: 10px"><li style="display: inline-flex; align-items: center; gap: 8px; padding: 2px 20px; font-size: 16px; font-weight: 500; color: #C9D6E3"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFD447" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>Setoran awal <strong style="color: #FFFFFF; font-weight: 700">Rp500.000</strong></span></li><li style="display: inline-flex; align-items: center; gap: 8px; padding: 2px 20px; border-left: 1px solid rgba(255,255,255,0.18); font-size: 16px; font-weight: 500; color: #C9D6E3"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFD447" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>Bunga hingga <strong style="color: #FFFFFF; font-weight: 700">2,75% p.a.</strong></span></li><li style="display: inline-flex; align-items: center; gap: 8px; padding: 2px 20px; border-left: 1px solid rgba(255,255,255,0.18); font-size: 16px; font-weight: 500; color: #C9D6E3"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFD447" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg><span>Gratis <strong style="color: #FFFFFF; font-weight: 700">10x transfer</strong> per bulan</span></li></ul>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 36px">
+        <button type="button" onClick="{{openTora}}" aria-haspopup="dialog" class="jt-solid" style="display: inline-flex; align-items: center; gap: 8px; min-height: 56px; padding: 0 32px; border: 0; border-radius: 999px; background: #FFFFFF; color: #0E2A47; font: 600 17px 'DM Sans', sans-serif; cursor: pointer">Buka Tabungan TORA<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+        <a href="assets/riplay-tabungan-tora.pdf" target="_blank" rel="noopener" class="jt-ghost-l" style="display: inline-flex; align-items: center; min-height: 56px; padding: 0 28px; border-radius: 999px; border: 2px solid #FFFFFF; color: #FFFFFF; font-weight: 600; font-size: 17px; text-decoration: none">Unduh RIPLAY (PDF)</a>
+      </div>
+      <p style="font-size: 13px; color: #8FA3B8; margin-top: 32px">Sumber: RIPLAY Umum Tabungan TORA Ver.08.2026, pembaruan 15/07/2026.</p>
+    </div>
+  </section>
+</main>
+  <sc-if value="{{fabShow}}" hint-placeholder-val="{{true}}">
+    <div class="jt-fab" style="position: fixed; right: 24px; bottom: 24px; z-index: 55; display: flex; flex-direction: column; align-items: center">
+      <button type="button" onClick="{{fabMin}}" aria-label="Sembunyikan tombol buka tabungan" class="jt-fab-x" style="position: absolute; top: 2px; right: 6px; z-index: 2; width: 32px; height: 32px; border-radius: 50%; border: 2px solid #FFFFFF; background: #0E2A47; color: #FFFFFF; display: grid; place-items: center; cursor: pointer; box-shadow: 0 4px 12px rgba(5,16,48,0.3)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      <button id="jt-fab-btn" type="button" onClick="{{openRegHero}}" aria-haspopup="dialog" class="jt-fab-btn" style="display: flex; flex-direction: column; align-items: center; padding: 0; border: 0; background: transparent; cursor: pointer; font: inherit; color: inherit">
+        <img class="jt-fab-img" src="assets/maskot-fab.webp" alt="" style="display: block; height: 160px; width: auto; filter: drop-shadow(0 12px 18px rgba(5,16,48,0.28))">
+        <span style="margin-top: -12px; position: relative; display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 16px; border-radius: 999px; background: #0E2A47; color: #FFFFFF; font: 700 14px 'DM Sans', sans-serif; white-space: nowrap; box-shadow: 0 8px 20px rgba(5,16,48,0.28)">Buka tabungan sekarang<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+      </button>
+    </div>
+  </sc-if>
+  <sc-if value="{{fabMinShow}}" hint-placeholder-val="{{false}}">
+    <button id="jt-fab-tab" type="button" onClick="{{fabRestore}}" aria-label="Tampilkan lagi tombol buka tabungan" title="Buka tabungan sekarang" class="jt-fab-tab" style="position: fixed; right: 0; bottom: 120px; z-index: 55; display: flex; align-items: center; gap: 6px; height: 60px; padding: 0 10px 0 12px; border: 0; border-radius: 30px 0 0 30px; background: #0E2A47; color: #FFFFFF; cursor: pointer; box-shadow: 0 8px 24px rgba(5,16,48,0.3)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg><img src="assets/maskot-head.webp" alt="" style="display: block; width: 44px; height: 44px; border-radius: 50%; background: #E8F5FD; object-fit: cover"></button>
+  </sc-if>
+  <sc-if value="{{regOpen}}" hint-placeholder-val="{{false}}">
+    <div onClick="{{closeReg}}" class="jt-ov {{regCls}}" style="position: fixed; inset: 0; z-index: 60; background: rgba(10,26,43,0.55); display: flex; align-items: center; justify-content: center; padding: 104px 24px 24px">
+      <div role="dialog" class="jt-dlg" aria-modal="true" aria-labelledby="jt-reg-title" onClick="{{stopReg}}" onKeyDown="{{regKey}}" style="position: relative; width: 100%; max-width: 1040px; background: #FFFFFF; color: #0E2A47; border-radius: 28px; box-shadow: 0 24px 64px rgba(5,16,48,0.28)">
+        <sc-if value="{{regForm}}" hint-placeholder-val="{{true}}"><img class="jt-masc" src="assets/maskot.webp" alt="" style="position: absolute; right: 92px; top: -96px; height: 190px; width: auto; z-index: 2; pointer-events: none"></sc-if>
+        <div style="max-height: calc(100vh - 128px); overflow-y: auto; border-radius: 28px; display: flex; flex-direction: column">
+        <div style="position: sticky; top: 0; z-index: 1; background: #FFFFFF; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 32px; border-bottom: 1px solid #E6EEF5">
+          <div><p style="font-size: 14px; font-weight: 700; letter-spacing: 0.04em; color: #1670AA">Simpanan individu</p><h2 id="jt-reg-title" style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 28px; line-height: 1.15; letter-spacing: -0.02em; margin-top: 4px">Daftar buka tabungan</h2></div>
+          <button type="button" onClick="{{closeReg}}" aria-label="Tutup formulir" class="jt-round-d" style="flex: none; width: 44px; height: 44px; border-radius: 50%; border: 2px solid #0E2A47; background: transparent; color: #0E2A47; display: grid; place-items: center; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+        </div>
+        <sc-if value="{{regForm}}" hint-placeholder-val="{{true}}">
+          <div style="padding: 28px 32px; display: flex; flex-direction: column; gap: 20px">
+            <p style="font-size: 15px; color: #41586F">Isi data di bawah, lalu datang ke cabang pilihanmu pada tanggal kunjungan. Kolom bertanda <span style="color: #B42318; font-weight: 700">*</span> wajib diisi.</p>
+            <div role="radiogroup" aria-labelledby="jt-reg-product-label" aria-required="true" aria-invalid="{{ai.product}}" style="display: flex; flex-direction: column; gap: 12px">
+              <p id="jt-reg-product-label" style="font-weight: 600; font-size: 15px">Jenis tabungan <span aria-hidden="true" style="color: #B42318">*</span></p>
+              <div class="jt-optgrid" style="display: grid; gap: 12px">
+                <sc-for list="{{prodOpts}}" as="o" hint-placeholder-count="10">
+                  <label class="jt-opt" style="position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; min-height: 124px; padding: 18px; border: 2px solid {{o.bd}}; border-radius: 18px; background: {{o.bg}}; color: #0E2A47; cursor: pointer">
+                    <input id="jt-reg-product-{{$index}}" type="radio" name="jt-reg-product" value="{{o.name}}" checked="{{o.sel}}" onChange="{{set.product}}" class="jt-opt-in" style="position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; pointer-events: none">
+                    <span aria-hidden="true" style="width: 44px; height: 44px; border-radius: 12px; background: {{o.icoBg}}; color: #1670AA; display: grid; place-items: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{o.ico}}"></path></svg></span>
+                    <span title="{{o.name}}" style="display: block; font: 700 15px/1.3 'DM Sans', sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{o.name}}</span>
+                  </label>
+                </sc-for>
+              </div>
+              <sc-if value="{{err.product}}" hint-placeholder-val="{{false}}"><p style="font-size: 14px; color: #B42318">{{msg.product}}</p></sc-if>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 20px 16px">
+              <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+                <label for="jt-reg-first" style="font-weight: 600; font-size: 15px">Nama depan <span aria-hidden="true" style="color: #B42318">*</span></label>
+                <input id="jt-reg-first" type="text" autocomplete="given-name" value="{{reg.first}}" onChange="{{set.first}}" aria-required="true" aria-invalid="{{ai.first}}" placeholder="Sesuai KTP" class="jt-in" style="width: 100%; min-height: 48px; padding: 0 16px; border: 1px solid {{bc.first}}; border-radius: 12px; background: #FFFFFF; color: #0E2A47; font: 400 16px 'DM Sans', sans-serif; box-sizing: border-box">
+                <sc-if value="{{err.first}}" hint-placeholder-val="{{false}}"><p style="font-size: 14px; color: #B42318">{{msg.first}}</p></sc-if>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+                <label for="jt-reg-last" style="font-weight: 600; font-size: 15px">Nama belakang <span style="font-weight: 400; color: #56677A">(opsional)</span></label>
+                <input id="jt-reg-last" type="text" autocomplete="family-name" value="{{reg.last}}" onChange="{{set.last}}" aria-invalid="{{ai.last}}" placeholder="Sesuai KTP" class="jt-in" style="width: 100%; min-height: 48px; padding: 0 16px; border: 1px solid {{bc.last}}; border-radius: 12px; background: #FFFFFF; color: #0E2A47; font: 400 16px 'DM Sans', sans-serif; box-sizing: border-box">
+                <sc-if value="{{err.last}}" hint-placeholder-val="{{false}}"><p style="font-size: 14px; color: #B42318">{{msg.last}}</p></sc-if>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 20px 16px">
+              <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+                <label for="jt-reg-phone" style="font-weight: 600; font-size: 15px">Nomor HP <span aria-hidden="true" style="color: #B42318">*</span></label>
+                <input id="jt-reg-phone" type="tel" inputmode="tel" autocomplete="tel" value="{{reg.phone}}" onChange="{{set.phone}}" aria-required="true" aria-invalid="{{ai.phone}}" placeholder="0812xxxxxxxx" class="jt-in" style="width: 100%; min-height: 48px; padding: 0 16px; border: 1px solid {{bc.phone}}; border-radius: 12px; background: #FFFFFF; color: #0E2A47; font: 400 16px 'DM Sans', sans-serif; box-sizing: border-box">
+                <sc-if value="{{err.phone}}" hint-placeholder-val="{{false}}"><p style="font-size: 14px; color: #B42318">{{msg.phone}}</p></sc-if>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+                <label for="jt-reg-email" style="font-weight: 600; font-size: 15px">Email <span aria-hidden="true" style="color: #B42318">*</span></label>
+                <input id="jt-reg-email" type="email" autocomplete="email" value="{{reg.email}}" onChange="{{set.email}}" aria-required="true" aria-invalid="{{ai.email}}" placeholder="nama@email.com" class="jt-in" style="width: 100%; min-height: 48px; padding: 0 16px; border: 1px solid {{bc.email}}; border-radius: 12px; background: #FFFFFF; color: #0E2A47; font: 400 16px 'DM Sans', sans-serif; box-sizing: border-box">
+                <sc-if value="{{err.email}}" hint-placeholder-val="{{false}}"><p style="font-size: 14px; color: #B42318">{{msg.email}}</p></sc-if>
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px">
+              <label for="jt-reg-address" style="font-weight: 600; font-size: 15px">Alamat <span aria-hidden="true" style="color: #B42318">*</span></label>
+              <textarea id="jt-reg-address" rows="3" autocomplete="street-address" value="{{reg.address}}" onChange="{{set.address}}" aria-required="true" aria-invalid="{{ai.address}}" class="jt-in" style="width: 100%; min-height: 96px; padding: 12px 16px; border: 1px solid {{bc.address}}; border-radius: 12px; background: #FFFFFF; color: #0E2A47; font: 400 16px/1.5 'DM Sans', sans-serif; box-sizing: border-box; resize: vertical"></textarea>
+              <sc-if value="{{err.address}}" hint-placeholder-val="{{false}}"><p style="font-size: 14px; color: #B42318">{{msg.address}}</p></sc-if>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 20px 16px">
+              <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+                <label for="jt-reg-date" style="font-weight: 600; font-size: 15px">Tanggal kunjungan <span aria-hidden="true" style="color: #B42318">*</span></label>
+                <input id="jt-reg-date" type="date" min="{{today}}" value="{{reg.date}}" onChange="{{set.date}}" aria-required="true" aria-invalid="{{ai.date}}" class="jt-in" style="width: 100%; min-height: 48px; padding: 0 16px; border: 1px solid {{bc.date}}; border-radius: 12px; background: #FFFFFF; color: #0E2A47; font: 400 16px 'DM Sans', sans-serif; box-sizing: border-box">
+                <sc-if value="{{err.date}}" hint-placeholder-val="{{false}}"><p style="font-size: 14px; color: #B42318">{{msg.date}}</p></sc-if>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
+                <p id="jt-reg-branch-label" style="font-weight: 600; font-size: 15px">Cabang <span aria-hidden="true" style="color: #B42318">*</span></p>
+                <div onClick="{{stopBr}}" style="position: relative">
+                  <button id="jt-reg-branch" type="button" onClick="{{toggleBr}}" aria-haspopup="listbox" aria-expanded="{{brExp}}" aria-labelledby="jt-reg-branch-label jt-reg-branch" aria-invalid="{{ai.branch}}" class="jt-in" style="width: 100%; min-height: 48px; padding: 0 14px 0 16px; border: 1px solid {{bc.branch}}; border-radius: 12px; background: #FFFFFF; color: {{brFg}}; font: 400 16px 'DM Sans', sans-serif; display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; text-align: left">
+                    <span style="flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{brLabel}}</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #0E2A47; transform: {{brRot}}; transition: transform 0.2s ease"><path d="M6 9l6 6 6-6"></path></svg>
+                  </button>
+                  <sc-if value="{{brOpen}}" hint-placeholder-val="{{false}}">
+                    <div onKeyDown="{{brKey}}" style="position: absolute; left: 0; right: 0; top: calc(100% + 6px); z-index: 5; background: #FFFFFF; border: 1px solid #D6E4EE; border-radius: 14px; box-shadow: 0 16px 40px rgba(5,16,48,0.18); padding: 10px">
+                      <div style="position: relative">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#56677A" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%)"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+                        <label for="jt-reg-brq" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">Cari cabang</label>
+                        <input id="jt-reg-brq" type="search" autocomplete="off" value="{{brQ}}" onChange="{{setBrQ}}" placeholder="Cari nama cabang" class="jt-in" style="width: 100%; min-height: 44px; padding: 0 14px 0 42px; border: 1px solid #7890A5; border-radius: 10px; background: #FFFFFF; color: #0E2A47; font: 400 15px 'DM Sans', sans-serif; box-sizing: border-box">
+                      </div>
+                      <div role="listbox" aria-labelledby="jt-reg-branch-label" style="max-height: 220px; overflow-y: auto; margin-top: 8px; display: flex; flex-direction: column; gap: 2px">
+                        <sc-for list="{{brList}}" as="br" hint-placeholder-count="3">
+                          <button type="button" role="option" aria-selected="{{br.sel}}" onClick="{{br.pick}}" class="jt-mlink" style="width: 100%; min-height: 44px; padding: 0 12px; border: 0; border-radius: 10px; background: {{br.bg}}; color: #0E2A47; font: {{br.fw}} 15px 'DM Sans', sans-serif; text-align: left; cursor: pointer">{{br.name}}</button>
+                        </sc-for>
+                        <sc-if value="{{brEmpty}}" hint-placeholder-val="{{false}}"><p style="padding: 12px; font-size: 15px; color: #56677A">Cabang tidak ditemukan.</p></sc-if>
+                      </div>
+                    </div>
+                  </sc-if>
+                </div>
+                <sc-if value="{{err.branch}}" hint-placeholder-val="{{false}}"><p style="font-size: 14px; color: #B42318">{{msg.branch}}</p></sc-if>
+              </div>
+            </div>
+          
+</div>
+          <div style="display: flex; justify-content: flex-end; gap: 12px; flex-wrap: wrap; padding: 20px 32px 28px; border-top: 1px solid #E6EEF5">
+            <button type="button" onClick="{{closeReg}}" class="jt-ghost-d" style="min-height: 52px; padding: 0 28px; border-radius: 999px; border: 2px solid #0E2A47; background: transparent; color: #0E2A47; font: 600 16px 'DM Sans', sans-serif; cursor: pointer">Batal</button>
+            <button type="button" onClick="{{submitReg}}" class="jt-solid" style="display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 28px; border-radius: 999px; border: 0; background: #0E2A47; color: #FFFFFF; font: 600 16px 'DM Sans', sans-serif; cursor: pointer">Kirim pendaftaran<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+          </div>
+        </sc-if>
+        <sc-if value="{{regDone}}" hint-placeholder-val="{{false}}">
+          <div role="status" class="jt-fade" style="padding: 48px 32px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px">
+            <img class="jt-masc-done" src="assets/maskot.webp" alt="Maskot J Trust tersenyum sambil mengacungkan jempol" style="display: block; height: 200px; width: auto; max-width: 100%">
+            <h3 style="font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 26px; line-height: 1.2">Pendaftaran terkirim</h3>
+            <p style="font-size: 17px; line-height: 1.6; color: #41586F; max-width: 46ch">Terima kasih, {{fullName}}. Pendaftaran {{reg.product}} sudah kami terima. Silakan datang ke {{reg.branch}} pada {{dateLabel}} dengan membawa KTP asli.</p>
+            <button type="button" onClick="{{closeReg}}" class="jt-solid" style="margin-top: 8px; min-height: 52px; padding: 0 32px; border-radius: 999px; border: 0; background: #0E2A47; color: #FFFFFF; font: 600 16px 'DM Sans', sans-serif; cursor: pointer">Selesai</button>
+          </div>
+        </sc-if>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+  <div style="background: #FFF4D6; color: #5A4300">
+    <div style="max-width: 1420px; margin: 0 auto; padding: 10px 24px; display: flex; gap: 12px; align-items: center; min-height: 64px">
+      <div class="jt-marq" role="region" aria-label="Informasi penting" style="flex: 1; min-width: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%)">
+        <div class="jt-marq-track {{marqCls}}" style="display: flex; width: max-content">
+          <div class="jt-marq-set" style="display: flex; align-items: center; gap: 56px; padding-right: 56px; white-space: nowrap; font-size: 15px; line-height: 1.5">
+            <p style="display: inline-flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M12 3l10 18H2z"></path><path d="M12 10v5M12 18v.01"></path></svg><span><strong>Waspada penipuan.</strong> Jangan berikan kode OTP atau PIN kepada siapa pun. Hati-hati dengan telepon, WhatsApp, iklan, atau link palsu yang mengatasnamakan J Trust Bank.</span></p>
+            <p style="display: inline-flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg><span><strong>Bank berizin dan diawasi.</strong> PT Bank JTrust Indonesia Tbk berizin dan diawasi oleh Otoritas Jasa Keuangan dan Bank Indonesia, serta merupakan peserta penjaminan LPS.</span></p>
+          </div>
+          <div class="jt-marq-set" aria-hidden="true" style="display: flex; align-items: center; gap: 56px; padding-right: 56px; white-space: nowrap; font-size: 15px; line-height: 1.5">
+            <p style="display: inline-flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M12 3l10 18H2z"></path><path d="M12 10v5M12 18v.01"></path></svg><span><strong>Waspada penipuan.</strong> Jangan berikan kode OTP atau PIN kepada siapa pun. Hati-hati dengan telepon, WhatsApp, iklan, atau link palsu yang mengatasnamakan J Trust Bank.</span></p>
+            <p style="display: inline-flex; align-items: center; gap: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg><span><strong>Bank berizin dan diawasi.</strong> PT Bank JTrust Indonesia Tbk berizin dan diawasi oleh Otoritas Jasa Keuangan dan Bank Indonesia, serta merupakan peserta penjaminan LPS.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer style="background: #06152A; color: #C9DCEA; padding: 88px 0 56px; font-size: 15px">
+    <div style="max-width: 1420px; margin: 0 auto; padding: 0 24px">
+      <h2 style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">Informasi dan tautan situs</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px 32px">
+        <div>
+          <h3 style="font-size: 16px; font-weight: 700; color: #FFFFFF; margin-bottom: 18px">Individu</h3>
+          <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Simpanan</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Simpanan Berjangka</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Giro</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Pinjaman</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Forex</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Kurs J Trust</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Tarif &amp; layanan</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">J Trust Prioritas</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size: 16px; font-weight: 700; color: #FFFFFF; margin-bottom: 18px">Bisnis</h3>
+          <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Simpanan Bisnis</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Simpanan Berjangka</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Giro</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Pinjaman Bisnis</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Trade Finance</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Cash Management</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Program Manfaat Karyawan</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">J NET Business</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size: 16px; font-weight: 700; color: #FFFFFF; margin-bottom: 18px">Promo &amp; layanan</h3>
+          <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Promo produk</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Promo merchant</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Gourmet Choice</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">J Mobile</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">J Net</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Suku bunga simpanan</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Suku bunga pinjaman</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Suku bunga dasar kredit</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size: 16px; font-weight: 700; color: #FFFFFF; margin-bottom: 18px">Tentang J Trust</h3>
+          <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Informasi perusahaan</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Tata kelola perusahaan</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Hubungan investor</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Keberlanjutan</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Penghargaan</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Karir</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">J Trust Group</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Berita &amp; market update</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size: 16px; font-weight: 700; color: #FFFFFF; margin-bottom: 18px">Bantuan &amp; keamanan</h3>
+          <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px">
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Hubungi kami</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Lokasi cabang &amp; ATM</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">FAQ</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">e-Form</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Keamanan perbankan</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Deklarasi anti fraud</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Pengaduan nasabah</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Publikasi penanganan pengaduan</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Peta situs</a></li>
+            <li><a class="jt-flink" href="#" style="color: #C9DCEA; text-decoration: none; font-size: 15px">Kebijakan privasi</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="height: 1px; background: rgba(255,255,255,0.14); margin: 64px 0 40px"></div>
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap">
+        <div style="flex: 1 1 520px; max-width: 760px">
+          <p style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #FFFFFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg>Indonesia | Bahasa Indonesia</p>
+          <img src="assets/logo-jtrust-white.png" alt="J Trust Bank" style="display: block; height: 34px; width: auto; margin-top: 28px">
+          <p style="font-size: 13px; line-height: 1.7; color: #A9C1D4; margin-top: 20px">PT Bank JTrust Indonesia Tbk berizin dan diawasi oleh Otoritas Jasa Keuangan dan Bank Indonesia, serta merupakan peserta penjaminan LPS. Alamat kantor pusat: [alamat kantor pusat]. J Trust Call 1500615 · customercare@jtrustbank.co.id</p>
+          <p style="font-size: 12px; color: #8FA9BF; margin-top: 12px">Mockup konsep untuk keperluan pitch, bukan situs resmi.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 20px; align-items: flex-start">
+          <div style="display: flex; gap: 10px"><a href="#" aria-label="Instagram jtrustbank" class="jt-flink" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; display: grid; place-items: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle></svg></a><a href="#" aria-label="Facebook JTrustBankID" class="jt-flink" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; display: grid; place-items: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"></path></svg></a><a href="#" aria-label="LinkedIn J Trust Bank" class="jt-flink" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; display: grid; place-items: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"></path></svg></a><a href="#" aria-label="YouTube J Trust Bank" class="jt-flink" style="width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; display: grid; place-items: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"></rect><path d="M10 9l5 3-5 3z" fill="currentColor"></path></svg></a></div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap"><a href="#" aria-label="Download J Mobile di App Store" class="jt-solid" style="display: inline-block; border-radius: 10px"><img src="assets/badge-appstore.png" alt="Download on the App Store" style="display: block; height: 48px; width: auto"></a><a href="#" aria-label="Download J Mobile di Google Play" class="jt-solid" style="display: inline-block; border-radius: 10px"><img src="assets/badge-googleplay-v2.png" alt="Get it on Google Play" style="display: block; height: 48px; width: auto"></a></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"sky":{"editor":"color","default":"#4CAFEA","section":"Brand"},"$preview":{"width":1440,"height":7000}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { cat: 'semua', menu: null, mob: false, solid: false, hidden: false, narrow: false, lang: 'ID', jm: 0, jmOpen: false, marqPaused: false, toraBal: 50000000, toraFaq: 0, fab: 'show', regOpen: false, regDone: false, regErr: {}, reg: { product: '', first: '', last: '', phone: '', email: '', address: '', date: '', branch: '' } };
+    this.lastY = 0;
+    this.onScroll = this.onScroll.bind(this);
+    this.onResize = this.onResize.bind(this);
+  }
+  componentDidMount() {
+    this.canHover = !!(window.matchMedia && window.matchMedia('(hover: hover)').matches);
+    this.setState({ narrow: window.innerWidth < 1024 });
+    this.lastY = window.scrollY || 0;
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+  }
+  componentWillUnmount() {
+    clearTimeout(this.ht);
+    document.documentElement.style.overflow = '';
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+  }
+  onResize() {
+    const n = window.innerWidth < 1024;
+    if (n !== this.state.narrow) this.setState({ narrow: n, menu: null, mob: false });
+  }
+  onScroll() {
+    const y = window.scrollY || 0;
+    const ce = document.getElementById('tora-cta');
+    if (ce) { const r = ce.getBoundingClientRect(); const v = r.top < window.innerHeight - 80 && r.bottom > 0; if (v !== !!this.state.ctaVis) this.setState({ ctaVis: v }); }
+    if (this.state.menu || this.state.mob) { this.lastY = y; return; }
+    if (y <= 8) { if (this.state.solid || this.state.hidden) this.setState({ solid: false, hidden: false }); }
+    else if (y > this.lastY + 4 && y > 120) { if (!this.state.hidden) this.setState({ hidden: true }); }
+    else if (y < this.lastY - 4) { if (this.state.hidden || !this.state.solid) this.setState({ hidden: false, solid: true }); }
+    this.lastY = y;
+  }
+  openMenu(n) {
+    clearTimeout(this.ht);
+    this.setState({ menu: n, mob: false, hidden: false });
+    if (n === 'cari') setTimeout(() => { const q = document.getElementById('jt-q'); if (q) q.focus(); }, 40);
+  }
+  openReg(product) {
+    this.lastFocus = document.activeElement;
+    clearTimeout(this.rt);
+    this.setState({ regOpen: true, regOut: false, regDone: false, regErr: {}, brOpen: false, brQ: '', menu: null, mob: false, reg: { product: product || '', first: '', last: '', phone: '', email: '', address: '', date: '', branch: '' } });
+    document.documentElement.style.overflow = 'hidden';
+    setTimeout(() => { const el = document.getElementById(product ? 'jt-reg-first' : 'jt-reg-product-0'); if (el) el.focus(); }, 40);
+  }
+  closeReg() {
+    if (!this.state.regOpen || this.state.regOut) return;
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.setState({ regOut: true, brOpen: false });
+    clearTimeout(this.rt);
+    this.rt = setTimeout(() => {
+      this.setState({ regOpen: false, regOut: false });
+      document.documentElement.style.overflow = '';
+      const f = this.lastFocus; if (f && f.focus) f.focus();
+    }, reduce ? 0 : 220);
+  }
+  goAll(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const el = document.getElementById('semua-tabungan'); if (!el) return;
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+  }
+  submitReg() {
+    const r = this.state.reg; const E = {};
+    if (!r.product) E.product = 'Pilih jenis tabungan.';
+    if (!r.first.trim()) E.first = 'Nama depan wajib diisi.';
+    if (!/^(\+62|62|0)8[0-9]{7,12}$/.test(r.phone.replace(/[\s-]/g, ''))) E.phone = 'Masukkan nomor HP yang valid, misalnya 0812xxxxxxxx.';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(r.email.trim())) E.email = 'Masukkan alamat email yang valid.';
+    if (!r.address.trim()) E.address = 'Alamat wajib diisi.';
+    if (!r.date) E.date = 'Pilih tanggal kunjungan.';
+    if (!r.branch) E.branch = 'Pilih cabang.';
+    const keys = Object.keys(E);
+    if (keys.length) { this.setState({ regErr: E, brOpen: false }); setTimeout(() => { const el = document.getElementById(keys[0] === 'product' ? 'jt-reg-product-0' : 'jt-reg-' + keys[0]); if (el) el.focus(); }, 40); return; }
+    this.setState({ regDone: true, regErr: {} });
+  }
+  renderVals() {
+    const P = [{"name": "Tabungan J Trust", "cat": "harian", "tag": "Harian", "desc": "Untuk perorangan dan non-perorangan, dengan suku bunga kompetitif dan Kartu ATM J Trust Bank.", "tagBg": "#E8F5FD"}, {"name": "Tabungan J Trust One", "cat": "harian", "tag": "Harian", "desc": "Suku bunga lebih kompetitif dibanding produk tabungan lainnya, untuk nilai simpanan yang lebih besar.", "tagBg": "#E8F5FD"}, {"name": "Tabungan TORA", "cat": "harian", "tag": "Harian", "desc": "Tanpa biaya administrasi rekening, bebas biaya tarik tunai di ATM J Trust Bank, ATM Bersama, dan Prima.", "tagBg": "#E8F5FD"}, {"name": "TabunganKu", "cat": "harian", "tag": "Harian", "desc": "Tabungan dengan persyaratan mudah dan ringan untuk menumbuhkan budaya menabung.", "tagBg": "#E8F5FD"}, {"name": "Tabungan Rencana J Trust", "cat": "rencana", "tag": "Rencana", "desc": "Setoran bulanan otomatis selama jangka waktu tertentu lewat autodebet.", "tagBg": "#FFF4D6"}, {"name": "Tabungan TORA USD", "cat": "valas", "tag": "Valas", "desc": "Tabungan dalam USD tanpa biaya administrasi dengan bunga kompetitif.", "tagBg": "#EDE8FB"}, {"name": "Simpanan Valas J Trust", "cat": "valas", "tag": "Valas", "desc": "Lima pilihan mata uang asing, setoran awal ringan, dan bebas biaya administrasi.", "tagBg": "#EDE8FB"}, {"name": "Tabungan Green Savings", "cat": "hijau", "tag": "Peduli lingkungan", "desc": "0,5% p.a. dari bunga yang kamu terima disalurkan untuk pelestarian alam.", "tagBg": "#E3F5EC"}, {"name": "Tabungan Blue Ocean Savings", "cat": "hijau", "tag": "Peduli lingkungan", "desc": "0,5% p.a. bunga untuk pelestarian laut, plus kontribusi bank 0,38% p.a.", "tagBg": "#E3F5EC"}, {"name": "Tabungan Smart Program", "cat": "program", "tag": "Program", "desc": "Rekening kepesertaan program promosi. Butuh rekening tabungan J Trust lain sebagai rekening pertama.", "tagBg": "#FDE8EF"}];
+    const C = [["semua", "Semua"], ["harian", "Harian"], ["rencana", "Rencana"], ["valas", "Valas"], ["hijau", "Peduli lingkungan"], ["program", "Program"]];
+    const st = this.state;
+    const sky = this.props.sky ?? '#4CAFEA';
+    const cats = C.map((c) => ({ label: c[1], sel: st.cat === c[0] ? 'true' : 'false', line: st.cat === c[0] ? sky : 'transparent', fg: st.cat === c[0] ? '#0E2A47' : '#56677A', pick: () => this.setState({ cat: c[0] }) }));
+    const prods = P.filter((p) => st.cat === 'semua' || p.cat === st.cat).map((p) => ({ ...p, open: (e) => { if (e && e.preventDefault) e.preventDefault(); this.openReg(p.name); } }));
+    const RI = {"harian": "M4 7h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7zM4 7V6a2 2 0 0 1 2-2h10M16 13.5h.01", "rencana": "M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zM4 10h16M8 3v4M16 3v4", "valas": "M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18zM3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18", "hijau": "M5 21c0-9 5-15 15-16-1 10-7 15-16 16zM5 21l8-8", "program": "M4 11h16v9H4zM3 7h18v4H3zM12 7v13M12 7c-1.5-3-5-3-5-1s3 1 5 1zM12 7c1.5-3 5-3 5-1s-3 1-5 1z"};
+        const BR = ['[Nama cabang 1]', '[Nama cabang 2]', '[Nama cabang 3]'];
+    const bq = (st.brQ || '').trim().toLowerCase();
+    const brList = BR.filter((n) => !bq || n.toLowerCase().indexOf(bq) !== -1).map((n) => ({
+      name: n, sel: st.reg.branch === n ? 'true' : 'false', bg: st.reg.branch === n ? '#E8F5FD' : 'transparent', fw: st.reg.branch === n ? 700 : 400,
+      pick: () => { this.setState((s) => ({ reg: { ...s.reg, branch: n }, regErr: { ...s.regErr, branch: '' }, brOpen: false })); setTimeout(() => { const t = document.getElementById('jt-reg-branch'); if (t) t.focus(); }, 30); }
+    }));
+    const brVals = {
+      fullName: (st.reg.first + ' ' + st.reg.last).trim(),
+      brOpen: st.brOpen, brExp: st.brOpen ? 'true' : 'false', brRot: st.brOpen ? 'rotate(180deg)' : 'rotate(0deg)', brQ: st.brQ,
+      brLabel: st.reg.branch || 'Pilih cabang', brFg: st.reg.branch ? '#0E2A47' : '#56677A', brList: brList, brEmpty: brList.length === 0,
+      stopBr: (e) => { if (e) e.stopPropagation(); },
+      toggleBr: () => { const o = !this.state.brOpen; this.setState({ brOpen: o, brQ: '' }); if (o) setTimeout(() => { const q = document.getElementById('jt-reg-brq'); if (q) q.focus(); }, 30); },
+      setBrQ: (e) => this.setState({ brQ: e.target.value }),
+      brKey: (e) => {
+        if (e.key === 'Escape') { e.stopPropagation(); this.setState({ brOpen: false }); const t = document.getElementById('jt-reg-branch'); if (t) t.focus(); }
+        else if (e.key === 'Enter' && e.target && e.target.id === 'jt-reg-brq' && brList.length) { e.preventDefault(); brList[0].pick(); }
+      }
+    };
+    const jmData = [
+      ['Download J Mobile', 'Unduh aplikasi J Mobile dari App Store atau Google Play, lalu pilih buka rekening baru.'],
+      ['Verifikasi e-KTP dan selfie', 'Isi data diri, foto e-KTP, lalu ambil selfie untuk memastikan identitasmu.'],
+      ['Rekening siap dipakai', 'Setelah verifikasi selesai, rekeningmu bisa langsung dipakai untuk transfer, bayar, dan klaim promo.']
+    ];
+    const jmC = this.props.stamp ?? '#D8392B';
+    const jmSteps = jmData.map((d, k) => ({
+      num: k + 1, title: d[0], desc: d[1], active: st.jm === k, sel: st.jm === k ? 'true' : 'false',
+      bg: st.jm === k ? '#FFFFFF' : 'transparent', numC: st.jm === k ? jmC : '#A9BEE8', titleC: st.jm === k ? '#0E2A47' : '#A9BEE8',
+      dotH: st.jm === k ? '32px' : '8px', dotC: st.jm === k ? '#0E2A47' : '#9AB0C2',
+      descH: st.jm === k ? '140px' : '0px', descOp: st.jm === k ? 1 : 0, descM: st.jm === k ? '10px' : '0px',
+      descTf: st.jm === k ? 'translateY(0)' : 'translateY(-6px)', numTf: st.jm === k ? 'scale(1)' : 'scale(0.9)',
+      pick: () => this.setState({ jm: k })
+    }));
+    const jv = (k) => ({ hidden: st.jm === k ? 'false' : 'true', op: st.jm === k ? 1 : 0, imgTf: st.jm === k ? 'scale(1)' : 'scale(1.06)' });
+    const TT = [
+      { min: 0, max: 2e6, rate: 0, range: 'Saldo di bawah Rp2 juta' },
+      { min: 2e6, max: 4e7, rate: 0.6, range: 'Rp2 juta hingga di bawah Rp40 juta' },
+      { min: 4e7, max: 1e8, rate: 1.25, range: 'Rp40 juta hingga di bawah Rp100 juta' },
+      { min: 1e8, max: 2e8, rate: 2.25, range: 'Rp100 juta hingga di bawah Rp200 juta' },
+      { min: 2e8, max: Infinity, rate: 2.75, range: 'Rp200 juta ke atas' }
+    ];
+    const tb = Number(st.toraBal) || 0;
+    const ti = Math.max(0, TT.findIndex((t) => tb >= t.min && tb < t.max));
+    const pct = (r) => r.toFixed(2).replace('.', ',') + '%';
+    const rp = (n) => 'Rp' + Math.round(n).toLocaleString('id-ID');
+    const setTb = (v) => this.setState({ toraBal: v });
+    const daily = tb * TT[ti].rate / 100 / 365;
+    const FAQ = [
+      ['Kapan bunga dibayarkan?', 'Bunga dihitung dari saldo harian dengan suku bunga berjenjang, diakumulasi, lalu dibayarkan setiap tanggal 1 setelah dipotong pajak 20%. Kalau tanggal 1 jatuh di hari libur, bunga tetap dibayarkan di tanggal yang sama.'],
+      ['Apakah Tabungan TORA termasuk penjaminan LPS?', 'J Trust Bank merupakan peserta penjaminan LPS. Tabungan tidak termasuk program penjaminan bila simpanan nasabah di satu bank melebihi Rp2 miliar dan suku bunga yang diterima melebihi tingkat bunga penjaminan LPS. Cek tingkat bunga penjaminan terbaru di lps.go.id.'],
+      ['Bisakah saya punya lebih dari satu rekening TORA?', 'Bisa. Satu nasabah boleh memiliki lebih dari satu rekening Tabungan TORA.'],
+      ['Kapan rekening jadi tidak aktif atau dormant?', 'Rekening tanpa transaksi (setoran, penarikan, atau cek saldo) selama 360 hari menjadi tidak aktif mulai hari ke-361, dan selama 1.800 hari menjadi dormant mulai hari ke-1.801. Rekening bersaldo Rp0 selama paling lama 6 bulan berturut-turut ditutup otomatis.'],
+      ['Di mana saya bisa membuka dan menutup rekening?', 'Pembukaan rekening bisa dilakukan di seluruh kantor cabang J Trust Bank. Penutupan rekening dilakukan di kantor cabang asal pembukaan rekening, dengan membawa dokumen yang dipersyaratkan.'],
+      ['Ke mana saya bisa bertanya atau mengadu?', 'Kunjungi kantor cabang J Trust Bank terdekat, hubungi J Trust Call 1500615 atau +622129261000 dari luar negeri, atau kirim email ke customercare@jtrustbank.co.id.'],
+      ['Apakah saya akan menerima penawaran dari pihak lain?', 'Nasabah akan menerima penawaran produk atau layanan dari pihak ketiga atau afiliasi apabila menyetujui untuk membagikan data pribadi.']
+    ];
+    const PRE = [[1e7, 'Rp10 juta'], [5e7, 'Rp50 juta'], [1.5e8, 'Rp150 juta'], [2.5e8, 'Rp250 juta']];
+    const toraVals = {
+      openTora: () => this.openReg('Tabungan TORA'),
+      goRate: (e) => { if (e && e.preventDefault) e.preventDefault(); const el = document.getElementById('tora-bunga'); if (el) el.scrollIntoView({ behavior: (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'auto' : 'smooth', block: 'start' }); },
+      tiers: TT.map((t, i) => { const on = i === ti; const z = i === 0; const SB = [0, 1e7, 5e7, 1.5e8, 2.5e8]; const SL = ['', 'Rp10 juta', 'Rp50 juta', 'Rp150 juta', 'Rp250 juta']; return {
+        no: i + 1, rate: pct(t.rate), range: t.range, pressed: on ? 'true' : 'false',
+        label: z ? 'Jenjang 1 · Belum berbunga' : 'Jenjang ' + (i + 1), h: ['200px', '250px', '300px', '350px', '400px'][i],
+        ex: z ? 'Saldo ini belum mendapat bunga' : 'Saldo ' + SL[i] + ' ≈ ' + rp(SB[i] * t.rate / 100 / 365) + ' per hari',
+        bg: on ? '#FFFFFF' : (z ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.06)'), fg: on ? '#0E2A47' : (z ? '#8FA3B8' : '#FFFFFF'), bd: on ? '#FFFFFF' : (z ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.14)'), eyebrow: on ? '#1670AA' : (z ? '#8FA3B8' : '#4CAFEA'), sub: on ? '#41586F' : (z ? '#8FA3B8' : '#B8C4D2'),
+        line: on ? '#E6EEF5' : (z ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.14)'), exc: on ? '#1670AA' : (z ? '#8FA3B8' : '#FFD447'),
+        pick: () => { setTb(i === 0 ? 1e6 : t.min); const el = document.getElementById('tora-simulasi'); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' }); } }; }),
+      balText: tb ? tb.toLocaleString('id-ID') : '',
+      setBal: (e) => { const d = String(e.target.value || '').replace(/\D/g, '').slice(0, 13); setTb(d ? Number(d) : 0); },
+      presets: PRE.map(([v, l]) => ({ label: l, bg: tb === v ? '#FFFFFF' : 'transparent', fg: tb === v ? '#0E2A47' : '#FFFFFF', pick: () => setTb(v) })),
+      calcRate: pct(TT[ti].rate) + ' p.a.', calcDay: rp(daily), calcMonth: rp(daily * 30), calcNet: rp(daily * 30 * 0.8), calcZero: TT[ti].rate === 0,
+      fees: [
+        ['Administrasi bulanan', 'Jika saldo akhir bulan kurang dari Rp500.000', 'Rp5.000'],
+        ['Penutupan rekening', '', 'Rp100.000'],
+        ['Rekening tidak aktif', '', 'Rp25.000'],
+        ['Rekening dormant', '', 'Rp25.000'],
+        ['Transfer SKN', 'Gratis 10x per bulan lewat J Mobile dan J Net', 'Rp2.900'],
+        ['Transfer RTGS', 'Gratis 10x per bulan lewat J Mobile dan J Net', 'Rp30.000'],
+        ['Tarik tunai ATM', 'Gratis 4x per hari di ATM Bersama dan Prima', 'Rp7.500'],
+        ['Buku tabungan', 'Per bulan, jika memakai buku tabungan', 'Rp10.000'],
+        ['Notifikasi nasabah korporasi', 'Per bulan, bagi pengguna J Trust Alert System', 'Rp5.000'],
+        ['Meterai', '', 'Sesuai penggunaan']
+      ].map(([name, note, fee]) => ({ name, note, fee })),
+      faqs: FAQ.map(([q, a], i) => { const open = st.toraFaq === i; return { q, a, open, exp: open ? 'true' : 'false', hid: open ? 'false' : 'true', rows: open ? '1fr' : '0fr', op: open ? 1 : 0, vs: open ? 0 : 1, icBg: open ? '#0E2A47' : '#EEF6FC', cardBg: open ? '#F3F9FE' : '#FFFFFF', cardBd: open ? '#4CAFEA' : '#DCE6EF', cardSh: open ? '0 12px 28px rgba(22,112,170,0.12)' : 'none', icFg: open ? '#FFFFFF' : '#0E2A47', bid: 'tora-q' + i, pid: 'tora-a' + i,
+        toggle: () => this.setState({ toraFaq: this.state.toraFaq === i ? -1 : i }) }; })
+    };
+    const RF = ['product', 'first', 'last', 'phone', 'email', 'address', 'date', 'branch'];
+    const RE = st.regErr || {};
+    const set = {}, err = {}, msg = {}, ai = {}, bc = {};
+    RF.forEach((k) => {
+      set[k] = (e) => { const v = e.target.value; this.setState((s) => ({ reg: { ...s.reg, [k]: v }, regErr: { ...s.regErr, [k]: '' } })); };
+      err[k] = !!RE[k]; msg[k] = RE[k] || ''; ai[k] = RE[k] ? 'true' : 'false'; bc[k] = RE[k] ? '#B42318' : '#7890A5';
+    });
+    const td = new Date(); const pad = (n) => (n < 10 ? '0' : '') + n;
+    const today = td.getFullYear() + '-' + pad(td.getMonth() + 1) + '-' + pad(td.getDate());
+    const dateLabel = st.reg.date ? new Date(st.reg.date + 'T00:00:00').toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+    const regVals = {
+      regCls: st.regOut ? 'is-out' : '',
+      marqCls: st.marqPaused ? 'is-paused' : '', marqPaused: st.marqPaused, marqPlaying: !st.marqPaused, marqLabel: st.marqPaused ? 'Jalankan teks berjalan' : 'Hentikan teks berjalan',
+      marqToggle: () => this.setState({ marqPaused: !this.state.marqPaused }),
+      fabShow: st.fab !== 'min' && !st.regOpen && !st.ctaVis, fabMinShow: st.fab === 'min' && !st.regOpen && !st.ctaVis,
+      fabMin: () => { this.setState({ fab: 'min' }); setTimeout(() => { const t = document.getElementById('jt-fab-tab'); if (t) t.focus(); }, 40); },
+      fabRestore: () => { this.setState({ fab: 'show' }); setTimeout(() => { const t = document.getElementById('jt-fab-btn'); if (t) t.focus(); }, 40); }, goAll: (e) => this.goAll(e),
+      regOpen: st.regOpen, regForm: st.regOpen && !st.regDone, regDone: st.regOpen && st.regDone, reg: st.reg, set: set, err: err, msg: msg, ai: ai, bc: bc, today: today, dateLabel: dateLabel,
+      prodOpts: P.map((p) => { const on = st.reg.product === p.name; return { name: p.name, sel: on, ico: RI[p.cat] || RI.harian, bd: on ? '#1670AA' : (RE.product ? '#B42318' : '#D6E4EE'), bg: on ? '#EEF6FC' : '#FFFFFF', icoBg: on ? '#FFFFFF' : '#E8F5FD' }; }),
+      openRegHero: () => this.openReg(''), closeReg: () => this.closeReg(), submitReg: () => this.submitReg(),
+      stopReg: (e) => { if (e) e.stopPropagation(); if (this.state.brOpen) this.setState({ brOpen: false }); },
+      regKey: (e) => { if (e.key === 'Escape') { e.stopPropagation(); this.closeReg(); } }
+    };
+    const open = !!st.menu || st.mob;
+    const top = !st.solid && !open;
+    const h = {
+      fg: top ? '#FFFFFF' : '#0E2A47', on: top ? '#0E2A47' : '#FFFFFF',
+      bg: open ? '#FFFFFF' : (st.solid ? 'rgba(255,255,255,0.76)' : 'transparent'),
+      blur: (st.solid && !open) ? 'blur(18px) saturate(1.4)' : 'none',
+      border: top ? '1px solid transparent' : '1px solid #D6E4EE',
+      tf: (st.hidden && !open) ? 'translateY(-100%)' : 'translateY(0)',
+      logoSrc: top ? 'assets/logo-jtrust-white.png' : 'assets/logo-jtrust-color.png', logoH: top ? '30px' : '42px'
+    };
+    const keys = ['individu', 'bisnis', 'promo', 'tentang'];
+    const names = { individu: 'Individu', bisnis: 'Bisnis', promo: 'Promo', tentang: 'Tentang J Trust' };
+    const menus = keys.map((k) => ({
+      key: k, label: names[k], exp: st.menu === k ? 'true' : 'false',
+      bg: st.menu === k ? (top ? 'rgba(255,255,255,0.16)' : 'rgba(14,42,71,0.08)') : (k === 'individu' ? (top ? 'rgba(255,255,255,0.12)' : 'rgba(14,42,71,0.06)') : 'transparent'),
+      rot: st.menu === k ? 'rotate(180deg)' : 'rotate(0deg)',
+      toggle: () => (st.menu === k ? this.setState({ menu: null }) : this.openMenu(k)),
+      hover: () => { if (!this.canHover) return; clearTimeout(this.ht); this.ht = setTimeout(() => this.openMenu(k), 90); }
+    }));
+    const langs = ['ID', 'EN', 'JP'].map((c) => ({ code: c, on: st.lang === c ? 'true' : 'false', bg: st.lang === c ? h.fg : 'transparent', fg: st.lang === c ? h.on : 'inherit', pick: () => this.setState({ lang: c }) }));
+    return {
+      ...regVals, ...brVals, ...toraVals,
+      jmSteps: jmSteps, jmBanOp: st.jmOpen ? 0 : 1, jmOrnA: st.jmOpen ? 0.16 : 0, jmOrnB: st.jmOpen ? 0.22 : 0, jmExp: st.jmOpen ? 'true' : 'false', jmBtnLabel: st.jmOpen ? 'Sembunyikan' : 'Lihat caranya', jmChevRot: st.jmOpen ? 'rotate(180deg)' : 'rotate(0deg)', jmBodyH: st.jmOpen ? '1400px' : '0px', jmBodyOp: st.jmOpen ? 1 : 0, jmBodyM: st.jmOpen ? '56px' : '0px', jmToggle: () => this.setState({ jmOpen: !st.jmOpen }), jv1: jv(0), jv2: jv(1), jv3: jv(2),
+      cats: cats, prods: prods, sky: sky, hfont: "'DM Sans', sans-serif", hweight: 700,
+      h: h, menus: menus, langs: langs, wide: !st.narrow, narrow: st.narrow, rightMl: st.narrow ? 'auto' : '0',
+      open_individu: st.menu === 'individu', open_bisnis: st.menu === 'bisnis', open_promo: st.menu === 'promo', open_tentang: st.menu === 'tentang', open_cari: st.menu === 'cari', open_login: st.menu === 'login',
+      loginExp: st.menu === 'login' ? 'true' : 'false', loginRot: st.menu === 'login' ? 'rotate(180deg)' : 'rotate(0deg)',
+      toggleLogin: () => (st.menu === 'login' ? this.setState({ menu: null }) : this.openMenu('login')),
+      cariExp: st.menu === 'cari' ? 'true' : 'false', cariBg: st.menu === 'cari' ? 'rgba(127,127,127,0.16)' : 'transparent',
+      toggleCari: () => (st.menu === 'cari' ? this.setState({ menu: null }) : this.openMenu('cari')),
+      mobOpen: st.mob, mobExp: st.mob ? 'true' : 'false', burgerLabel: st.mob ? 'Tutup menu' : 'Buka menu',
+      toggleMob: () => this.setState({ mob: !st.mob, menu: null, hidden: false }),
+      anyOpen: open,
+      closeAll: () => { clearTimeout(this.ht); this.setState({ menu: null, mob: false }); },
+      hdrEnter: () => { if (this.state.menu) clearTimeout(this.ht); },
+      hdrLeave: () => { clearTimeout(this.ht); if (this.canHover && this.state.menu && this.state.menu !== 'cari' && this.state.menu !== 'login') this.ht = setTimeout(() => this.setState({ menu: null }), 180); },
+      hdrKey: (e) => { if (e.key === 'Escape') { clearTimeout(this.ht); this.setState({ menu: null, mob: false }); } }
+    };
+  }
+}
+</script>
+</body>
+</html>
